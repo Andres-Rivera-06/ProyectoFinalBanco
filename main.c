@@ -41,10 +41,6 @@ void menu(){
     printf(" |_____________________________________|\n\n");
     printf("  Ingrese un opcion:  ");
 
-    
-    
-    
-    
 }       
     
 void main(){
