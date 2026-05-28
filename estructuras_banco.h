@@ -1,0 +1,38 @@
+#ifndef ESTRUCTURAS_BANCO_H_
+#define ESTRUCTURAS_BANCO_H_
+#include <stdbool.h>
+
+typedef struct {
+  int day;
+  int month;
+  int year; 
+} Date;
+
+typedef struct {
+  char id[30];
+  char name[30];
+  char lastname[30];
+  Date dateOfBirth;
+  char nationality[30];
+  char phone[20];
+  char email[50];
+} Person;
+
+typedef struct {
+  char nAccount[20];
+  char idPerson[30];
+  float balance;
+} Account;
+
+typedef struct{
+  char originAccount[20];
+  char destinyAccount[20];
+  float amount;
+  Date dateMovement;
+} Movement;
+
+
+Date createDate();
+bool checkDayMonth(int day, int month);
+void showDate(Date date);
+#endif
