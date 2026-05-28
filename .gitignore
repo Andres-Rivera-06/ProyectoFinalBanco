@@ -14,6 +14,7 @@
 *.so.*
 *.dylib
 *.dll
+*.obj
 
 # Archivos de depuración y perfiles
 *.dSYM
@@ -21,6 +22,7 @@
 *.gcov
 *.gcno
 *.gcda
+*.pdb
 
 # Archivos temporales de compilación y respaldos
 *.swp
