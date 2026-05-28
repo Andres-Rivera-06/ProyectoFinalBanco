@@ -1,0 +1,41 @@
+# Archivos ejecutables
+*.out
+*.exe
+*.app
+*.run
+
+# Archivos de objetos y bibliotecas
+*.o
+*.a
+*.lo
+*.la
+*.lai
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Archivos de depuración y perfiles
+*.dSYM
+*.su
+*.gcov
+*.gcno
+*.gcda
+
+# Archivos temporales de compilación y respaldos
+*.swp
+*.swo
+*.tmp
+*.temp
+*~
+.vscode/
+.vs/
+
+# Carpetas de compilación comunes (ej. CMake o Make)
+build/
+bin/
+out/
+Makefile.in
+config.status
+config.log
+configure
