@@ -42,7 +42,7 @@ void menu(){
     printf("  Ingrese un opcion:  ");
 
 }       
-    
+
 void main(){
     
   int option = 1;
