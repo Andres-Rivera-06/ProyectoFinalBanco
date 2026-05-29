@@ -5,6 +5,6 @@
 
 bool transfers(Account Accounts[]){
   Account 
-  char numAccount
+  char numAccount;
 
 }

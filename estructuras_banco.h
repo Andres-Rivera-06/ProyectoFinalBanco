@@ -35,4 +35,6 @@ typedef struct{
 Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
+bool existPerson(Person persons[], int countPersons, char idPerson[]);
+Account createAccount(Person persons[], int countPersons);
 #endif
