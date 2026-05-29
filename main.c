@@ -46,7 +46,7 @@ void menu(){
 }
 
 void main(){
-    
+    printf("hola");
   int option = 1;
 
   while (option != 0 ){
