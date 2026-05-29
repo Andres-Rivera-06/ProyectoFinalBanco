@@ -4,7 +4,7 @@
 
 Account createAccount(Person persons[]){
   Account account;
-  
+
   printf("Ingrese el numero de cuenta: ");
   scanf("%s", account.nAccount);
 
@@ -15,7 +15,4 @@ Account createAccount(Person persons[]){
     
   }
   
-  
-  
-
 }
