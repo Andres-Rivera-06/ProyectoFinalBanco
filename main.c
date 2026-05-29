@@ -3,14 +3,15 @@
 
 enum OptionMenu{
   CREATEPERSON = 1,
+  UPDATEPERSON,
   CREATEACCOUNT,
+  UPDATEACCOUNT,
   VIEWPERSONS,
   VIEWTRANSACTIONS,
   VIEWBALANCES,
   TRANSFER,
   WITHDRAW,
-  DEPOSIT,
-  UPDATEDATA
+  DEPOSIT
 };
 
 Person Persons[20];
@@ -26,19 +27,20 @@ int countMovements = 0;
 void menu(){
    
     printf("\n          BANCO NEOBANCK          \n");
-    printf("  _____________________________________\n");
-    printf(" |                                     |\n\n");
-    printf(" |  1. CREAR PERSONA                   |\n");
-    printf(" |  2. CREAR CUENTA                    |\n");
-    printf(" |  3. VISUALIZAR PERSONAS             |\n");
-    printf(" |  4. VER MOVIMIENTOS                 |\n");
-    printf(" |  5. VER SALDOS                      |\n");
-    printf(" |  6. TRANSFERIR                      |\n");
-    printf(" |  7. RETIRAR                         |\n");
-    printf(" |  8. CONSIGNAR                       |\n");
-    printf(" |  9. ACTUALIZAR DATOS                |\n");
-    printf(" |  0. SALIR                           |\n");
-    printf(" |_____________________________________|\n\n");
+    printf("  _______________________________________\n");
+    printf(" |                                       |\n\n");
+    printf(" |  1. CREAR PERSONA                     |\n");
+    printf(" |  2. ACTUALIZAR DATOS DE PERSONA       |\n");
+    printf(" |  3. CREAR CUENTA                      |\n");
+    printf(" |  4. ACTUALIZAR DATOS DE CUENTA        |\n");
+    printf(" |  5. VISUALIZAR PERSONAS               |\n");
+    printf(" |  6. VER MOVIMIENTOS                   |\n");
+    printf(" |  7. VER SALDOS                        |\n");
+    printf(" |  8. TRANSFERIR                        |\n");
+    printf(" |  9. RETIRAR                           |\n");
+    printf(" |  10. CONSIGNAR                         |\n");
+    printf(" |  0. SALIR                             |\n");
+    printf(" |_______________________________________|\n\n");
     printf("  Ingrese un opcion:  ");
 
 }       
@@ -55,32 +57,34 @@ void main(){
       case CREATEPERSON:
   
         break;
+      case UPDATEPERSON:
+  
+        break;
       case CREATEACCOUNT:
-
+        
+        break;
+      case UPDATEACCOUNT:
+    
         break;
       case VIEWPERSONS:
       
         break;
       case VIEWTRANSACTIONS:
         
-          break;
+        break;
       case VIEWBALANCES:
         
-          break;
+        break;
       case TRANSFER:
         
-          break;
+        break;
       case WITHDRAW:
         
-          break;
+        break;
       case DEPOSIT:
         
-          break;
-      case UPDATEDATA:
-        
         break;
-
-    default:
+      default:
       printf("\n ¡Opcion invalida!\n");
       break;
       
