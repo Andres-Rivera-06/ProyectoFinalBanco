@@ -46,3 +46,7 @@ void listPersons(Person persons[], int countPersons){
     printf("\n");
   }
 }
+
+bool existPerson(Person persons, int countPersons, char ){
+
+}
