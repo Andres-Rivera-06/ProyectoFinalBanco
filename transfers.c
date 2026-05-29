@@ -4,7 +4,18 @@
 
 
 bool transfers(Account Accounts[]){
-  Account 
-  char numAccount;
+  Account transfers;
+
+  char originAccount[20];
+  char destinyAccount[20];
+  float amount;
+  float availableBalance;
+  float shippingCost;
+
+  // pedir datos de transfrencia 
+
+  printf(" Numero de cuenta origen : \n");
+  scanf("%s", originAccount);
+
 
 }

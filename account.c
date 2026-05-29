@@ -32,3 +32,12 @@ Account createAccount(Person persons[], int countPersons){
   return account;
 
 }
+
+bool verifyExistAccount(Account accounts[], int countAccount, char nAccount[]){ 
+  for(int i = 0; i < countAccount; i++){
+    if(strcmp(accounts[i].nAccount, nAccount) == 0){
+      return true;
+    }
+  }
+  return false;
+}

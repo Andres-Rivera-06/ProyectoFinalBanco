@@ -28,6 +28,7 @@ typedef struct{
   char originAccount[20];
   char destinyAccount[20];
   float amount;
+  float shippingcost;
   Date dateTransfers;
 } Transfer;
 
@@ -37,4 +38,5 @@ bool checkDayMonth(int day, int month);
 void showDate(Date date);
 bool existPerson(Person persons[], int countPersons, char idPerson[]);
 Account createAccount(Person persons[], int countPersons);
+bool verifyExistAccount(Account accounts[], int countAccount, char nAccount[]);
 #endif
