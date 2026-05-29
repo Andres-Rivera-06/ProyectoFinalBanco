@@ -28,8 +28,8 @@ typedef struct{
   char originAccount[20];
   char destinyAccount[20];
   float amount;
-  Date dateMovement;
-} Movement;
+  Date dateTransfers;
+} Transfer;
 
 
 Date createDate();

@@ -47,6 +47,8 @@ void listPersons(Person persons[], int countPersons){
   }
 }
 
-bool existPerson(Person persons, int countPersons, char ){
-
+bool existPerson(Person persons, int countPersons, char idPerson[]){
+  for(int i = 0; i < countPersons; i++){
+    
+  }
 }
