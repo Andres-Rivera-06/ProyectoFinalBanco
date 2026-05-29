@@ -26,27 +26,27 @@ int countTransfers = 0;
 
 void menu(){
    
-    printf("\n          BANCO NEOBANCK          \n");
-    printf("  _______________________________________\n");
-    printf(" |                                       |\n\n");
-    printf(" |  1. CREAR PERSONA                     |\n");
-    printf(" |  2. ACTUALIZAR DATOS DE PERSONA       |\n");
-    printf(" |  3. CREAR CUENTA                      |\n");
-    printf(" |  4. ACTUALIZAR DATOS DE CUENTA        |\n");
-    printf(" |  5. VISUALIZAR PERSONAS               |\n");
-    printf(" |  6. VER MOVIMIENTOS                   |\n");
-    printf(" |  7. VER SALDOS                        |\n");
-    printf(" |  8. TRANSFERIR                        |\n");
-    printf(" |  9. RETIRAR                           |\n");
-    printf(" |  10. CONSIGNAR                         |\n");
-    printf(" |  0. SALIR                             |\n");
-    printf(" |_______________________________________|\n\n");
-    printf("  Ingrese un opcion:  ");
+  printf("\n          BANCO NEOBANCK          \n");
+  printf("  _______________________________________\n");
+  printf(" |                                       |\n\n");
+  printf(" |  1. CREAR PERSONA                     |\n");
+  printf(" |  2. ACTUALIZAR DATOS DE PERSONA       |\n");
+  printf(" |  3. CREAR CUENTA                      |\n");
+  printf(" |  4. ACTUALIZAR DATOS DE CUENTA        |\n");
+  printf(" |  5. VISUALIZAR PERSONAS               |\n");
+  printf(" |  6. VER MOVIMIENTOS                   |\n");
+  printf(" |  7. VER SALDOS                        |\n");
+  printf(" |  8. TRANSFERIR                        |\n");
+  printf(" |  9. RETIRAR                           |\n");
+  printf(" |  10. CONSIGNAR                         |\n");
+  printf(" |  0. SALIR                             |\n");
+  printf(" |_______________________________________|\n\n");
+  printf("  Ingrese un opcion:  ");
 
 }
 
 void main(){
-    printf("hola");
+  printf("hola");
   int option = 1;
 
   while (option != 0 ){
