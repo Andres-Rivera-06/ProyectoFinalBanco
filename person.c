@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "estructuras_banco.h"
+#include <string.h>
 
 Person createPerson(){
   Person person;
@@ -47,8 +48,11 @@ void listPersons(Person persons[], int countPersons){
   }
 }
 
-bool existPerson(Person persons, int countPersons, char idPerson[]){
+bool existPerson(Person persons[], int countPersons, char idPerson[]){
   for(int i = 0; i < countPersons; i++){
-    
+    if(strcmp(persons[i].id, idPerson)){
+      return true;
+    }
   }
+  return false;
 }
