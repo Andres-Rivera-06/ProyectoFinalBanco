@@ -6,6 +6,8 @@ extern int countPersons;
 extern int countAccounts;
 extern int countTransfers;
 
+#define calcularImpuesto (amount) (amount * 0.004)
+
 typedef struct {
   int day;
   int month;
