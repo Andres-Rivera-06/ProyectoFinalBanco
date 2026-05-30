@@ -92,7 +92,7 @@ bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount){
 float retiro (float amount, char nAccount[]){
 }
 
-void showAccountTransfers(Account Accounts){
+void showAccountTransfers(Account Accounts[], Transfer transfers[]){
 
   char nAccount[30];
 
@@ -100,10 +100,20 @@ void showAccountTransfers(Account Accounts){
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
     scanf("%s", nAccount);
-    if(verifyExistAccount(accounts, countAccount, nAccount)){
+    if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
       printf("Ingrese un numero de una cuenta existente.");
+    }
+  }
+
+  for(int i = 0; i < countTransfers; i++){
+    if(strcmp(transfers[i].originAccount, nAccount) == 0){
+      printf("--Tranferencia Enviada--\n");
+      showTransfer(transfers[i]);
+    }else if(strcmp(transfers[i].destinyAccount, nAccount) == 0){
+      printf("--Tranferencia Recibida--\n");
+      showTransfer(transfers[i]);
     }
   }
   
