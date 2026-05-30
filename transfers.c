@@ -25,5 +25,6 @@ bool transfers(Account Accounts[]){
   verifyExistAccount(Accounts, destinyAccount);
 
   printf(" El saldo de la cuenta origen es : %f");
+  
 
 }

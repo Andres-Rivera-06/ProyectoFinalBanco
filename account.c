@@ -79,5 +79,12 @@ bool consingAccount(Account accounts[], int countAccount){
   return true;
 }
 
-verifyBalanceAccoun(float amount,char nAccount[]);
-  if ( strcmp(nAccount[].nAccount)
+bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount){
+  for(int i = 0; i < countAccounts; i++){
+    if(strcmp(accounts[i].nAccount, nAccount) == 0){
+      return amount <= accounts[i].balance;
+    }
+  }
+  return false;
+}
+
