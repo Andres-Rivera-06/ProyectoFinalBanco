@@ -18,11 +18,6 @@ Person Persons[20];
 Account Accounts[50];
 Transfer Transfers[100];
 
-int countPersons = 0;
-int countAcconts = 0;
-int countTransfers = 0;
-
-
 
 void menu(){
    
@@ -38,7 +33,7 @@ void menu(){
   printf(" |  7. VER SALDOS                        |\n");
   printf(" |  8. TRANSFERIR                        |\n");
   printf(" |  9. RETIRAR                           |\n");
-  printf(" |  10. CONSIGNAR                         |\n");
+  printf(" |  10. CONSIGNAR                        |\n");
   printf(" |  0. SALIR                             |\n");
   printf(" |_______________________________________|\n\n");
   printf("  Ingrese un opcion:  ");

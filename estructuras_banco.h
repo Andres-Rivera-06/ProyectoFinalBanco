@@ -2,6 +2,10 @@
 #define ESTRUCTURAS_BANCO_H_
 #include <stdbool.h>
 
+extern int countPersons;
+extern int countAccounts;
+extern int countTransfers;
+
 typedef struct {
   int day;
   int month;
