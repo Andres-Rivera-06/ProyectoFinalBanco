@@ -89,10 +89,7 @@ bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount){
 }
 
 
- )
-
 float retiro (float amount, char nAccount[]){
-  if
 }
 
 void showAccountTransfers(Account Accounts){
