@@ -82,6 +82,10 @@ bool consingAccount(Account accounts[], int countAccount){
 verifyBalanceAccoun(float amount,char nAccount[]);
   if ( strcmp(nAccount[].nAccount)
 
+  float retiro (float amount, char nAccount[]){
+    if
+  } )
+
 
 
 
