@@ -42,17 +42,39 @@ bool verifyExistAccount(Account accounts[], int countAccount, char nAccount[]){
   return false;
 }
 
-bool consingAccount(Account accounts[], int countAccount, char nAccount[]){
+bool consingAccount(Account accounts[], int countAccount){
   printf("Consignar dinero a una cuenta");
 
   char nAccount[30];
 
   bool existAccount = false;
   while(!existAccount){
-    printf("Ingrese el numero de cuenta");
+    printf("Ingrese el numero de cuenta: ");
     scanf("%s", nAccount);
     if(verifyExistAccount(accounts, countAccount, nAccount)){
       existAccount = true;
+    }else{
+      printf("Ingrese un numero de una cuenta existente.");
     }
   }
+
+  float amount = -1;
+  bool validAmount = false;
+  while(!validAmount){
+    printf("Ingrese la cantidad que desea consignar: ");
+    scanf("%f", amount);
+    if(amount < 0){
+      printf("El monto no debe ser menor a 0");
+    }else{
+      validAmount = true;
+    }
+  }
+  
+  for(int i = 0; i < countAccounts; i++){
+    if(strcmp(accounts[i].nAccount, nAccount)){
+      accounts[i].balance = accounts[i].balance + amount;
+    }
+  }
+
+  return true;
 }
