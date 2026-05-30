@@ -88,3 +88,26 @@ bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount){
   return false;
 }
 
+
+ )
+
+float retiro (float amount, char nAccount[]){
+  if
+}
+
+void showAccountTransfers(Account Accounts){
+
+  char nAccount[30];
+
+  bool existAccount = false;
+  while(!existAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccount);
+    if(verifyExistAccount(accounts, countAccount, nAccount)){
+      existAccount = true;
+    }else{
+      printf("Ingrese un numero de una cuenta existente.");
+    }
+  }
+  
+}
