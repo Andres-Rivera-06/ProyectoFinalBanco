@@ -38,7 +38,7 @@ void menu(){
   printf(" |  7. VER SALDOS                        |\n");
   printf(" |  8. TRANSFERIR                        |\n");
   printf(" |  9. RETIRAR                           |\n");
-  printf(" |  10. CONSIGNAR                         |\n");
+  printf(" |  10. CONSIGNAR                        |\n");
   printf(" |  0. SALIR                             |\n");
   printf(" |_______________________________________|\n\n");
   printf("  Ingrese un opcion:  ");
