@@ -18,11 +18,6 @@ Person Persons[20];
 Account Accounts[50];
 Transfer Transfers[100];
 
-int countPersons = 0;
-int countAcconts = 0;
-int countTransfers = 0;
-
-
 
 void menu(){
    
