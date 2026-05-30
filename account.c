@@ -81,3 +81,24 @@ bool consingAccount(Account accounts[], int countAccount){
 
 verifyBalanceAccoun(float amount,char nAccount[]);
   if ( strcmp(nAccount[].nAccount)
+
+
+
+
+
+void showAccountTransfers(Account Accounts){
+
+  char nAccount[30];
+
+  bool existAccount = false;
+  while(!existAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccount);
+    if(verifyExistAccount(accounts, countAccount, nAccount)){
+      existAccount = true;
+    }else{
+      printf("Ingrese un numero de una cuenta existente.");
+    }
+  }
+  
+}
