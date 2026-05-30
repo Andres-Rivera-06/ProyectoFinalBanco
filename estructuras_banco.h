@@ -42,5 +42,5 @@ bool checkDayMonth(int day, int month);
 void showDate(Date date);
 bool existPerson(Person persons[], int countPersons, char idPerson[]);
 Account createAccount(Person persons[], int countPersons);
-bool verifyExistAccount(Account accounts[], int countAccount, char nAccount[]);
+bool verifyExistAccount(Account accounts[], char nAccount[]);
 #endif  

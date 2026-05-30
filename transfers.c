@@ -17,9 +17,13 @@ bool transfers(Account Accounts[]){
   printf(" Numero de cuenta origen : \n");
   scanf("%s", originAccount);
 
-  verifyExistAccount(,1 , originAccount);
+  verifyExistAccount(Accounts, originAccount);
   
   printf(" Numero de cuenta destino : \n");
   scanf("%s", destinyAccount);
+
+  verifyExistAccount(Accounts, destinyAccount);
+
+  printf(" El saldo de la cuenta origen es : %f");
 
 }

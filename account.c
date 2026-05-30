@@ -33,8 +33,8 @@ Account createAccount(Person persons[], int countPersons){
 
 }
 
-bool verifyExistAccount(Account accounts[], int countAccount, char nAccount[]){ 
-  for(int i = 0; i < countAccount; i++){
+bool verifyExistAccount(Account accounts[], char nAccount[]){ 
+  for(int i = 0; i < countAccounts; i++){
     if(strcmp(accounts[i].nAccount, nAccount) == 0){
       return true;
     }
@@ -56,3 +56,6 @@ bool consingAccount(Account accounts[], int countAccount, char nAccount[]){
     }
   }
 }
+
+verifyBalanceAccoun(float amount,char nAccount[]);
+  if ( strcmp(nAccount[].nAccount)
