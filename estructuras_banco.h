@@ -39,11 +39,13 @@ typedef struct{
 } Transfer;
 
 
+Person createPerson();
 Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
-bool existPerson(Person persons[], int countPersons, char idPerson[]);
-Account createAccount(Person persons[], int countPersons);
+bool existPerson(Person persons[], char idPerson[]);
+Account createAccount(Person persons[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
+void listPersons(Person persons[]);
 #endif  

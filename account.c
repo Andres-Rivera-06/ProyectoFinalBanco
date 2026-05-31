@@ -2,7 +2,7 @@
 #include <string.h>
 #include "estructuras_banco.h"
 
-Account createAccount(Person persons[], int countPersons){
+Account createAccount(Person persons[]){
   Account account;
 
   printf("Ingrese el numero de cuenta: ");
@@ -13,18 +13,20 @@ Account createAccount(Person persons[], int countPersons){
   while (!existPersonAccount){
     printf("Ingrese la identificacion de la persona: ");
     scanf("%s", idPerson);
-    if(existPerson(persons, countPersons, idPerson)){
+    if(existPerson(persons, idPerson)){
       existPersonAccount = true;
       strcpy(account.idPerson, idPerson);
+    }else{
+      printf("No se encontro una persona con ese numero de cedula\n");
     }
   }
   
   float balance = -1;
   while(balance < 0){
-    print("Ingrese el balance inicial de la cuenta: ");
+    printf("Ingrese el balance inicial de la cuenta: ");
     scanf("%f", &balance);
     if(balance < 0){
-      print("El balance inicial no puede ser menor a 0");
+      printf("El balance inicial no puede ser menor a 0");
     }
   }
   account.balance = balance;
@@ -42,7 +44,7 @@ bool verifyExistAccount(Account accounts[], char nAccount[]){
   return false;
 }
 
-bool consingAccount(Account accounts[], int countAccount){
+bool consingAccount(Account accounts[]){
   printf("Consignar dinero a una cuenta");
 
   char nAccount[30];
@@ -51,7 +53,7 @@ bool consingAccount(Account accounts[], int countAccount){
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
     scanf("%s", nAccount);
-    if(verifyExistAccount(accounts, countAccount, nAccount)){
+    if(verifyExistAccount(accounts, nAccount)){
       existAccount = true;
     }else{
       printf("Ingrese un numero de una cuenta existente.");
@@ -62,7 +64,7 @@ bool consingAccount(Account accounts[], int countAccount){
   bool validAmount = false;
   while(!validAmount){
     printf("Ingrese la cantidad que desea consignar: ");
-    scanf("%f", amount);
+    scanf("%f", &amount);
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
     }else{
@@ -79,7 +81,7 @@ bool consingAccount(Account accounts[], int countAccount){
   return true;
 }
 
-bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount){
+bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount[]){
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(accounts[i].nAccount, nAccount) == 0){
       return amount <= accounts[i].balance;

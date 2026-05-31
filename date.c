@@ -76,7 +76,7 @@ Date createDate(){
   
   while (year < 1900){
     
-    printf("Ingrese el año: ");
+    printf("Ingrese el anio: ");
     scanf("%d", &year);
     if (year < 1900){
       printf("Ingrese un año valido\n");

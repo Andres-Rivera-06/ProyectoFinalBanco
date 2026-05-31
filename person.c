@@ -14,7 +14,7 @@ Person createPerson(){
   printf("Ingrese el apellido: ");
   scanf("%s", person.lastname);
 
-  printf("Ingrese la fecha de nacimiento: \n");
+  printf("Fecha de nacimiento \n");
   person.dateOfBirth = createDate();
 
   printf("Ingrese la nacionalidad: ");
@@ -41,14 +41,16 @@ void showPerson(Person person){
 }
 
 
-void listPersons(Person persons[], int countPersons){
+void listPersons(Person persons[]){
+  printf("holin in list persons");
   for (int i = 0; i < countPersons; i++){
+    printf("Nombre en list persons: %s", persons[i].name);
     showPerson(persons[i]);
     printf("\n");
   }
 }
 
-bool existPerson(Person persons[], int countPersons, char idPerson[]){
+bool existPerson(Person persons[], char idPerson[]){
   for(int i = 0; i < countPersons; i++){
     if(strcmp(persons[i].id, idPerson)){
       return true;

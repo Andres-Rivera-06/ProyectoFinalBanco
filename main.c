@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include "estructuras_banco.h"
 
+int countPersons = 0;
+int countAccounts = 0;
+int countTransfers = 0;
+
 enum OptionMenu{
   CREATEPERSON = 1,
   UPDATEPERSON,
@@ -14,9 +18,6 @@ enum OptionMenu{
   DEPOSIT
 };
 
-Person Persons[20];
-Account Accounts[50];
-Transfer Transfers[100];
 
 
 void menu(){
@@ -41,6 +42,9 @@ void menu(){
 }
 
 void main(){
+  Person Persons[20];
+  Account Accounts[50];
+  Transfer Transfers[100];
   int option = 1;
 
   while (option != 0 ){
@@ -49,19 +53,28 @@ void main(){
     
     switch(option){
       case CREATEPERSON:
-  
+        printf("Agregar nueva persona\n");
+        Person person = createPerson();
+        printf("%s", person.name);
+        Persons[countPersons] = person;
+        countPersons = countPersons + 1;
+        printf("Persona creada correctamente");
         break;
       case UPDATEPERSON:
   
         break;
       case CREATEACCOUNT:
-        
+        printf("Crear cuenta\n");
+        Account account = createAccount(Persons);
+        Accounts[countAccounts] = account;
+        countAccounts = countAccounts + 1;
+        printf("Cuenta creada correstamente");
         break;
       case UPDATEACCOUNT:
     
         break;
       case VIEWPERSONS:
-      
+        listPersons(Persons);
         break;
       case VIEWTRANSACTIONS:
         
