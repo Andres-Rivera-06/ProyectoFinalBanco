@@ -6,27 +6,65 @@
 bool transfers(Account Accounts[]){
   Account transfers;
 
-  char originAccount[20];
   char destinyAccount[20];
+  char originAccount[20];
   float amount;
-  float availableBalance;
   float shippingCost;
 
   // pedir datos de transfrencia 
-
-  printf(" Numero de cuenta origen : \n");
-  scanf("%s", originAccount);
-
-  verifyExistAccount(Accounts, originAccount);
   
-  printf(" Numero de cuenta destino : \n");
-  scanf("%s", destinyAccount);
-
-  verifyExistAccount(Accounts, destinyAccount);
-
-  printf(" El saldo de la cuenta origen es : %f");
+  bool existAccount = false;
+  while(!existAccount){
+    printf(" Ingrese el numero de cuenta de origen: ");
+    scanf("%s", originAccount);
+    if(verifyExistAccount(Accounts, originAccount)){
+      existAccount = true;
+    }else{
+      printf(" No se encontro esta cuenta.");
+    }
+  }
   
+  existAccount = false;
+  while(!existAccount){
+    printf(" Ingrese el numero de cuenta de destino: ");
+    scanf("%s", destinyAccount);
+    if(verifyExistAccount(Accounts, destinyAccount)){
+      if(strcmp(originAccount, destinyAccount) == 0){
+        printf(" La cuenta origen y destino no pueden ser la misma.\n");
+      }else{
+        existAccount = true;
+      }
+    }else{
+      printf(" No se encontro esta cuenta.");
+    }
+  }
 
+  bool validAmount = false;
+  while(!validAmount){
+    printf(" Ingresa el valor a trasnferir :\n ");
+    scanf("%f", &amount);
+    if(amount <= 0){
+      printf(" El monto debe ser mayor que cero.\n");
+    }else{
+      shippingCost = tax(amount);
+      if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){
+        for(int i = 0; i < countAccounts; i++){
+          if(strcmp(Accounts[i].nAccount,originAccount)==0){
+          Accounts[i].balance = Accounts[i].balance - amount + shippingCost;
+          }
+        }
+      }else{
+      printf(" Saldo insuficiente.\n");
+      }
+    }
+  }
+  for(int i = 0; i < countAccounts; i++){
+    if(strcmp(Accounts[i].nAccount,destinyAccount)==0){
+      Accounts[i].balance = Accounts[i].balance + amount;
+      printf(" Transferencia exitosa.! ");
+      return true;
+    }
+  }
 }
 
 

@@ -6,7 +6,7 @@ extern int countPersons;
 extern int countAccounts;
 extern int countTransfers;
 
-#define calcularImpuesto (amount) (amount * 0.004)
+#define tax(amount) ((amount) * 0.004)
 
 typedef struct {
   int day;
@@ -48,5 +48,6 @@ Account createAccount(Person persons[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
+bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]);
 bool consingAccount(Account accounts[]);
-#endif  
+#endif
