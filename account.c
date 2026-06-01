@@ -93,6 +93,17 @@ bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount[]){
 
 
 float retiro (float amount, char nAccount[]){
+  if ( strcmp(nAccount[].nAccount)) 
+  } float retiro (float amount, char nAccount[]){
+    float withdraw;
+    printf("Ingrese la cantidad que desea retirar: ");
+    scanf("%f", &withdraw);
+    if (withdraw > amount){
+      printf("fondos insuficientes");
+    }else{
+      withdraw = amount - calcularImpuesto(withdraw);
+      printf("el monto a retirar es: %f", withdraw);) 
+    }
 }
 
 void showAccountTransfers(Account Accounts[], Transfer transfers[]){
