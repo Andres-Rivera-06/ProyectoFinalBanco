@@ -49,4 +49,5 @@ bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
 bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]);
+bool consingAccount(Account accounts[]);
 #endif

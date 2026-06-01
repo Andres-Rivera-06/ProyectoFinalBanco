@@ -35,28 +35,28 @@ Account createAccount(Person persons[]){
 
 }
 
-bool verifyExistAccount(Account accounts[], char nAccount[]){ 
+bool verifyExistAccount(Account Accounts[], char nAccount[]){ 
   for(int i = 0; i < countAccounts; i++){
-    if(strcmp(accounts[i].nAccount, nAccount) == 0){
+    if(strcmp(Accounts[i].nAccount, nAccount) == 0){
       return true;
     }
   }
   return false;
 }
 
-bool consingAccount(Account accounts[]){
+bool consingAccount(Account Accounts[]){
   printf("Consignar dinero a una cuenta");
 
-  char nAccount[30];
+  char nAccount[20];
 
   bool existAccount = false;
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
     scanf("%s", nAccount);
-    if(verifyExistAccount(accounts, nAccount)){
+    if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("Ingrese un numero de una cuenta existente.");
+      printf("No existe una cuenta con ese numero de cuenta.");
     }
   }
 
@@ -69,15 +69,16 @@ bool consingAccount(Account accounts[]){
       printf("El monto no debe ser menor a 0");
     }else{
       validAmount = true;
-    }
+    } 
   }
-  
+  int aux = 0;
   for(int i = 0; i < countAccounts; i++){
-    if(strcmp(accounts[i].nAccount, nAccount)){
-      accounts[i].balance = accounts[i].balance + amount;
+    if(strcmp(Accounts[i].nAccount, nAccount)){
+      Accounts[i].balance = Accounts[i].balance + amount;
+      aux = Accounts[i].balance;
     }
   }
-
+  printf("El nuevo monto de la cuenta es: %f", aux);
   return true;
 }
 
@@ -92,11 +93,22 @@ bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount[]){
 
 
 float retiro (float amount, char nAccount[]){
+  if ( strcmp(nAccount[].nAccount)) 
+  } float retiro (float amount, char nAccount[]){
+    float withdraw;
+    printf("Ingrese la cantidad que desea retirar: ");
+    scanf("%f", &withdraw);
+    if (withdraw > amount){
+      printf("fondos insuficientes");
+    }else{
+      withdraw = amount - calcularImpuesto(withdraw);
+      printf("el monto a retirar es: %f", withdraw);) 
+    }
 }
 
 void showAccountTransfers(Account Accounts[], Transfer transfers[]){
 
-  char nAccount[30];
+  char nAccount[20];
 
   bool existAccount = false;
   while(!existAccount){

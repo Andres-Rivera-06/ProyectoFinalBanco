@@ -29,6 +29,10 @@ Person createPerson(){
   return person;
 }
 
+bool updatePerson(Account Accounts[]){
+
+}
+
 void showPerson(Person person){
   printf("Identificacion: %s\n", person.id);
   printf("Nombre: %s\n", person.name);

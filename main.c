@@ -6,7 +6,8 @@ int countAccounts = 0;
 int countTransfers = 0;
 
 enum OptionMenu{
-  CREATEPERSON = 1,
+  GOOUT = 0,
+  CREATEPERSON,
   UPDATEPERSON,
   CREATEACCOUNT,
   UPDATEACCOUNT,
@@ -89,7 +90,15 @@ void main(){
         
         break;
       case DEPOSIT:
-        
+        printf("Consignar cuenta\n");
+        if(consingAccount(Accounts)){
+          printf("Consignacion exitosa");
+        }else{
+          printf("Consignacion fallida, vuelva a intentarlo");
+        }
+        break;
+      case GOOUT:
+        printf("Gracias por usar nuestro sistema");
         break;
       default:
       printf("\n ¡Opcion invalida!\n");
