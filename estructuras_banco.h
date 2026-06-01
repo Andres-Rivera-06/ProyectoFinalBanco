@@ -43,7 +43,7 @@ Person createPerson();
 Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
-bool existPerson(Person persons[], char idPerson[]);
+bool verifyExistPerson(Person persons[], char idPerson[]);
 Account createAccount(Person persons[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);

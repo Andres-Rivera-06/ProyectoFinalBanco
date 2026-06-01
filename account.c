@@ -49,16 +49,16 @@ bool consingAccount(Account Accounts[]){
 
   char nAccount[20];
 
-  bool existAccount = false;
-  while(!existAccount){
-    printf("Ingrese el numero de cuenta: ");
-    scanf("%s", nAccount);
-    if(verifyExistAccount(Accounts, nAccount)){
-      existAccount = true;
-    }else{
-      printf("No existe una cuenta con ese numero de cuenta.");
+    bool existAccount = false;
+    while(!existAccount){
+      printf("Ingrese el numero de cuenta: ");
+      scanf("%s", nAccount);
+      if(verifyExistAccount(Accounts, nAccount)){
+        existAccount = true;
+      }else{
+        printf("No existe una cuenta con ese numero de cuenta.");
+      }
     }
-  }
 
   float amount = -1;
   bool validAmount = false;
@@ -82,10 +82,10 @@ bool consingAccount(Account Accounts[]){
   return true;
 }
 
-bool verifyBalanceAccoun(Account accounts[], float amount, char nAccount[]){
+bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]){
   for(int i = 0; i < countAccounts; i++){
-    if(strcmp(accounts[i].nAccount, nAccount) == 0){
-      return amount <= accounts[i].balance;
+    if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+      return amount <= Accounts[i].balance;
     }
   }
   return false;
