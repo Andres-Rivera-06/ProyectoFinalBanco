@@ -16,8 +16,18 @@ enum UpdatePersonOption{
 Person createPerson(){
   Person person;
   
-  printf("Ingrese la identificacion: ");
-  scanf("%s", person.id);
+  char idPerson[30];
+  bool existPerson = false;
+  while (!existPerson){
+    printf("Ingrese la identificacion: ");
+    scanf("%s", idPerson);
+    if(verifyExistPerson(Persons, idPerson)){
+      printf("Ya existe una persona con esa identificacion");
+    }else{
+      strcpy(person.id, idPerson);
+      existPerson = true;
+    }
+  }
 
   printf("Ingrese el nombre: ");
   scanf("%s", person.name);
@@ -38,6 +48,15 @@ Person createPerson(){
   scanf("%s", person.email);
 
   return person;
+}
+
+
+void showMenuEditPerson(){
+  printf(" 1. Nombre\n");
+  printf(" 2. Apellido\n");
+  printf(" 3. Fecha de nacimiento\n");
+  printf(" 4. Numero de telefono\n");
+  printf(" 5. Correo electronico\n");
 }
 
 bool updatePerson(Person Persons[]){
@@ -63,10 +82,9 @@ bool updatePerson(Person Persons[]){
         prinf("Ingrese una opcion ");
         scanf("%d", &option);
 
-        switch (option)
-        {
+        switch (option){
         case NAME:
-          printf("Ingrese el numero nombre: ");
+          printf("Ingrese el nuevo nombre: ");
           scanf("%s", name);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
@@ -75,7 +93,62 @@ bool updatePerson(Person Persons[]){
             }
           }
           break;
-        
+
+        case LASTNAME:
+          printf("Ingrese el nuevo apellido");
+          scanf("%s", lastname);
+          for(int i = 0; i < countPersons; i++){
+            if(stricmp(Persons[i].id, idPerson) == 0){
+              strncpy(Persons[i].lastname, lastname, sizeof(Persons[i].lastname) - 1);
+              printf("Cambio de apellido exitoso");
+            }
+          }
+          break;
+
+        case DATEOFBIRTH:
+          printf("Modificar fecha de nacimiento");
+          dateOfBirth = createDate();
+          for(int i = 0; i < countPersons; i++){
+            if(stricmp(Persons[i].id, idPerson) == 0){
+              Persons[i].dateOfBirth = dateOfBirth;
+              printf("Cambio de fecha de nacimiento exitoso");
+            }
+          }
+          break;
+
+        case NATIONALITY:
+          printf("Ingrese la nacionalidad");
+          scanf("%s", nationality);
+          for(int i = 0; i < countPersons; i++){
+            if(stricmp(Persons[i].id, idPerson) == 0){
+              strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
+              printf("Cambio de nacionalidad exitoso");
+            }
+          }
+          break;
+
+        case PHONE:
+          printf("Ingrese el nuevo numero de telefono");
+          scanf("%s", phone);
+          for(int i = 0; i < countPersons; i++){
+            if(stricmp(Persons[i].id, idPerson) == 0){
+              strncpy(Persons[i].phone, phone, sizeof(Persons[i].phone) - 1);
+              printf("Cambio de telefono exitoso");
+            }
+          }
+          break;
+
+        case EMAIL:
+          printf("Ingrese el nuevo correo");
+          scanf("%s", email);
+          for(int i = 0; i < countPersons; i++){
+            if(stricmp(Persons[i].id, idPerson) == 0){
+              strncpy(Persons[i].email, email, sizeof(Persons[i].email) - 1);
+              printf("Cambio de telefono exitoso");
+            }
+          }
+          break;
+
         default:
           break;
         }
@@ -83,18 +156,11 @@ bool updatePerson(Person Persons[]){
       
     }else{
       printf("\nNo se encontro esta persona");
+      
     }
   }
-
 }
 
-void showMenuEditPerson(){
-  printf(" 1. Nombre\n");
-  printf(" 2. Apellido\n");
-  printf(" 3. Fecha de nacimiento\n");
-  printf(" 4. Numero de telefono\n");
-  printf(" 5. Correo electronico\n");
-}
 
 void showPerson(Person person){
   printf("Identificacion: %s\n", person.id);
@@ -107,6 +173,25 @@ void showPerson(Person person){
   printf("Correo: %s\n", person.email);
 }
 
+bool readPerson(Person Persons[]){
+  char idPerson[30];
+  bool existPerson = false;
+  while(!existPerson){
+    printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
+    scanf("%s", idPerson);
+    if(verifyExistPerson(Persons, idPerson)){ 
+      for (int i = 0; i < countPersons; i++){
+        if(strcmp(Persons[i].id, idPerson)){
+          showPerson(Persons[i]);
+          return true;
+        }
+      }
+    }else{
+      printf("No se encontro una persona con esa identificacion");
+      return false;
+    }
+  }
+}
 
 void listPersons(Person persons[]){
   printf("holin in list persons");
@@ -124,4 +209,28 @@ bool verifyExistPerson(Person persons[], char idPerson[]){
     }
   }
   return false;
+}
+
+void viewBalances(Account Accounts[]){
+  char idPerson[30];
+  bool existPerson = false;
+  while(!existPerson){
+    printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
+    scanf("%s", idPerson);
+    if(verifyExistPerson(Persons, idPerson)){
+      int countAccountsPerson = 0;
+      for(int i = 0; i < countAccounts; i++){
+        if(strcmp(Accounts[i].idPerson, idPerson)){
+          printf("Numero de cuenta: %s\n", Accounts[i].nAccount);
+          printf("Balance: %f\n", Accounts[i].balance);
+          countAccountsPerson++;
+        }
+      }
+      if(countAccountsPerson == 0){
+        printf("No se encontraron cuentas asociadas a la persona ingresada\n");
+      }
+    }else{
+      printf("\nNo se encontro una persona con ese numero");
+    }
+  }
 }

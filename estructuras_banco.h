@@ -24,6 +24,7 @@ typedef struct {
   char email[50];
 } Person;
 
+
 typedef struct {
   char nAccount[20];
   char idPerson[30];

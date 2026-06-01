@@ -45,20 +45,20 @@ bool verifyExistAccount(Account Accounts[], char nAccount[]){
 }
 
 bool consingAccount(Account Accounts[]){
-  printf("Consignar dinero a una cuenta");
+  printf("Consignar dinero a una cuenta\n");
 
   char nAccount[20];
 
-    bool existAccount = false;
-    while(!existAccount){
-      printf("Ingrese el numero de cuenta: ");
-      scanf("%s", nAccount);
-      if(verifyExistAccount(Accounts, nAccount)){
-        existAccount = true;
-      }else{
-        printf("No existe una cuenta con ese numero de cuenta.");
-      }
+  bool existAccount = false;
+  while(!existAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccount);
+    if(verifyExistAccount(Accounts, nAccount)){
+      existAccount = true;
+    }else{
+      printf("No existe una cuenta con ese numero de cuenta.");
     }
+  }
 
   float amount = -1;
   bool validAmount = false;
@@ -67,11 +67,14 @@ bool consingAccount(Account Accounts[]){
     scanf("%f", &amount);
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
+    }else if(amount == 0){
+      printf("El monto no debe ser cero\n");
     }else{
       validAmount = true;
     } 
   }
-  int aux = 0;
+
+  float aux = 0;
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount, nAccount)){
       Accounts[i].balance = Accounts[i].balance + amount;
@@ -106,7 +109,7 @@ float retiro (float amount, char nAccount[]){
     }
 }
 
-void showAccountTransfers(Account Accounts[], Transfer transfers[]){
+void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
 
   char nAccount[20];
 
@@ -122,12 +125,12 @@ void showAccountTransfers(Account Accounts[], Transfer transfers[]){
   }
 
   for(int i = 0; i < countTransfers; i++){
-    if(strcmp(transfers[i].originAccount, nAccount) == 0){
+    if(strcmp(Transfers[i].originAccount, nAccount) == 0){
       printf("--Tranferencia Enviada--\n");
-      showTransfer(transfers[i]);
-    }else if(strcmp(transfers[i].destinyAccount, nAccount) == 0){
+      showTransfer(Transfers[i]);
+    }else if(strcmp(Transfers[i].destinyAccount, nAccount) == 0){
       printf("--Tranferencia Recibida--\n");
-      showTransfer(transfers[i]);
+      showTransfer(Transfers[i]);
     }
   }
   

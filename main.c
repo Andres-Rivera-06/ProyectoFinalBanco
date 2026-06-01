@@ -55,7 +55,7 @@ void main(){
     switch(option){
       case CREATEPERSON:
         printf("Agregar nueva persona\n");
-        Person person = createPerson();
+        Person person = createPerson(Persons);
         printf("%s", person.name);
         Persons[countPersons] = person;
         countPersons = countPersons + 1;
