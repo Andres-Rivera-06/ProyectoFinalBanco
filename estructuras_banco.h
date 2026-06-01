@@ -48,4 +48,5 @@ Account createAccount(Person persons[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
+bool consingAccount(Account accounts[]);
 #endif  
