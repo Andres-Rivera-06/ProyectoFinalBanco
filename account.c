@@ -142,7 +142,7 @@ bool withdrawAccount(Account Accounts[]){
     }else{
       for(int i = 0; i < countAccounts; i++){
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
-          if (Accounts[i].balance >= (amount + tax(amount))){
+          if (Accounts[i].balance >= (amount + TAX(amount))){
             validAmount = true;
           }
           else{
