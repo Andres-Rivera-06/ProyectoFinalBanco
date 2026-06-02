@@ -44,7 +44,7 @@ Transfer createTransfer(Account Accounts[]){
   bool validAmount = false;
   while(!validAmount){
     printf(" Ingresa el valor a trasnferir : ");
-    if(scanf("%f", &amount) != 1){
+    if(scanf("%.2f", &amount) != 1){
         printf(" Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
         continue;
@@ -84,8 +84,8 @@ Transfer createTransfer(Account Accounts[]){
 void showTransfer(Transfer transfer){
   printf("Numero de cuenta de origen: %s\n", transfer.originAccount);
   printf("Numero de cuenta de destino: %s\n", transfer.destinyAccount);
-  printf("Monto de la tranferencia: %f\n", transfer.amount);
-  printf("Impuesto por tranferencia:: %f\n", transfer.shippingcost);
+  printf("Monto de la tranferencia: %.2f\n", transfer.amount);
+  printf("Impuesto por tranferencia:: %.2f\n", transfer.shippingcost);
   printf("Fecha de la tranferencia: ");
   showDate(transfer.dateTransfer);
 }
