@@ -56,9 +56,8 @@ Transfer createTransfer(Account Accounts[]){
       if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){
         for(int i = 0; i < countAccounts; i++){
           if(strcmp(Accounts[i].nAccount,originAccount)==0){
-          Accounts[i].balance = Accounts[i].balance - amount - shippingCost;
-          validAmount = true;
-          break;
+            Accounts[i].balance = Accounts[i].balance - (amount + shippingCost);
+            validAmount = true;
           }
         }
       }else{

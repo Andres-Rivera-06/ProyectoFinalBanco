@@ -2,9 +2,9 @@
 #define ESTRUCTURAS_BANCO_H_
 #include <stdbool.h>
 
-extern int countPersons;
-extern int countAccounts;
-extern int countTransfers;
+extern int countPersons; 
+extern int countAccounts; 
+extern int countTransfers; 
 
 #define TAX(amount) ((amount) * 0.004)
 #define JUMPSPACE()printf("\n")
@@ -46,7 +46,7 @@ Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
 bool verifyExistPerson(Person persons[], char idPerson[]);
-Account createAccount(Person persons[]);
+Account createAccount(Person persons[], Account Accounts[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
@@ -64,4 +64,5 @@ void saveAccounts(Account accounts[], int countAccounts);
 int readAccounts(Account accounts[]);
 void saveTransfers(Transfer transfers[], int countTransfers);
 int readTransfers(Transfer transfers[]);
+bool withdrawAccount(Account Accounts[]);
 #endif

@@ -2,11 +2,22 @@
 #include <string.h>
 #include "estructuras_banco.h"
 
-Account createAccount(Person persons[]){
+Account createAccount(Person persons[], Account Accounts[]){
   Account account;
 
-  printf("Ingrese el numero de cuenta: ");
-  scanf("%s", account.nAccount);
+  char nAccountAux[30];
+  bool existNAccount = false;
+  while (!existNAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccountAux);
+    if(verifyExistAccount(Accounts, nAccountAux)){
+      printf("Este numero de cuenta ya existe");
+      JUMPSPACE();
+    }else{
+      strcpy(account.nAccount, nAccountAux);
+      existNAccount = true;
+    }
+  }
   
   char idPerson[30];
   bool existPersonAccount = false;
@@ -45,7 +56,8 @@ bool verifyExistAccount(Account Accounts[], char nAccount[]){
 }
 
 bool consingAccount(Account Accounts[]){
-  printf("Consignar dinero a una cuenta\n");
+  printf("Consignar dinero a una cuenta");
+  JUMPSPACE();
 
   char nAccount[20];
 
@@ -72,7 +84,8 @@ bool consingAccount(Account Accounts[]){
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
     }else if(amount == 0){
-      printf("El monto no debe ser cero\n");
+      printf("El monto no debe ser cero");
+      JUMPSPACE();
     }else{
       validAmount = true;
     } 
@@ -123,16 +136,27 @@ bool withdrawAccount(Account Accounts[]){
         while(getchar() != '\n');
         continue;
     }
-    if(amount < 0){
-      printf("El monto no debe ser menor a 0");
+    if(amount <= 0){
+      printf("El monto a retirar debe ser mayor a cero");
+      JUMPSPACE();
     }else{
-      validAmount = true;
+      for(int i = 0; i < countAccounts; i++){
+        if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+          if (Accounts[i].balance >= (amount + tax(amount))){
+            validAmount = true;
+          }
+          else{
+            printf("Fondos insuficientes");
+            JUMPSPACE();
+          }
+        }
+      }
     } 
   }
   float aux = 0;
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount, nAccount) == 0){
-      Accounts[i].balance = Accounts[i].balance - amount;
+      Accounts[i].balance = Accounts[i].balance - (amount + tax(amount));
       aux = Accounts[i].balance;
     }
   }
@@ -162,7 +186,8 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
       printf("--Tranferencia Enviada--\n");
       showTransfer(Transfers[i]);
     }else if(strcmp(Transfers[i].destinyAccount, nAccount) == 0){
-      printf("--Tranferencia Recibida--\n");
+      printf("--Tranferencia Recibida--");
+      JUMPSPACE();
       showTransfer(Transfers[i]);
     }
   }

@@ -52,11 +52,18 @@ Person createPerson(Person Persons[]){
 
 
 void showMenuEditPerson(){
-  printf(" 1. Nombre:\n");
-  printf(" 2. Apellido:\n");
-  printf(" 3. Fecha de nacimiento:\n");
-  printf(" 4. Numero de telefono:\n");
-  printf(" 5. Correo electronico:\n");
+  printf(" 1. Nombre");
+  JUMPSPACE();
+  printf(" 2. Apellido");
+  JUMPSPACE();
+  printf(" 3. Fecha de nacimiento");
+  JUMPSPACE();
+  printf(" 4. Nacionalidad");
+  JUMPSPACE();
+  printf(" 5. Numero de telefono");
+  JUMPSPACE();
+  printf(" 6. Correo electronico");
+  JUMPSPACE();
 }
 
 bool updatePerson(Person Persons[]){
@@ -87,7 +94,7 @@ bool updatePerson(Person Persons[]){
           printf("Ingrese el nuevo nombre: ");
           scanf(" %[^\n]", name);
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].name, name, sizeof(Persons[i].name) - 1);
               printf("Cambio de nombre exitoso");
             }
@@ -97,8 +104,9 @@ bool updatePerson(Person Persons[]){
         case LASTNAME:
           printf("Ingrese el nuevo apellido: ");
           scanf(" %[^\n]", lastname);
+          scanf("%s", lastname);
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].lastname, lastname, sizeof(Persons[i].lastname) - 1);
               printf("Cambio de apellido exitoso");
             }
@@ -108,7 +116,7 @@ bool updatePerson(Person Persons[]){
         case DATEOFBIRTH:
           printf("Modificar fecha de nacimiento");
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               Persons[i].dateOfBirth = updateDate(Persons[i].dateOfBirth);
               printf("Cambio de fecha de nacimiento exitosa");
             }
@@ -119,7 +127,7 @@ bool updatePerson(Person Persons[]){
           printf("Ingrese la nacionalidad: ");
           scanf(" %[^\n]", nationality);
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
               printf("Cambio de nacionalidad exitosa");
             }
@@ -130,7 +138,7 @@ bool updatePerson(Person Persons[]){
           printf("Ingrese el nuevo numero de telefono: ");
           scanf("%s", phone);
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].phone, phone, sizeof(Persons[i].phone) - 1);
               printf("Cambio de telefono exitoso");
             }
@@ -141,13 +149,14 @@ bool updatePerson(Person Persons[]){
           printf("Ingrese el nuevo correo: ");
           scanf("%s", email);
           for(int i = 0; i < countPersons; i++){
-            if(stricmp(Persons[i].id, idPerson) == 0){
+            if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].email, email, sizeof(Persons[i].email) - 1);
               printf("Cambio de correo exitoso");
             }
           }
           break;
         case GOOUT:
+          existAccount = true; 
           break;
         default:
          JUMPSPACE();
@@ -158,8 +167,9 @@ bool updatePerson(Person Persons[]){
       }
       
     }else{
-      printf("\nNo se encontro esta persona");
-      
+      JUMPSPACE();
+      printf("No se encontro esta persona");
+      JUMPSPACE();
     }
   }
   return true;
@@ -167,14 +177,20 @@ bool updatePerson(Person Persons[]){
 
 
 void showPerson(Person person){
-  printf("Identificacion: %s\n", person.id);
-  printf("Nombre: %s\n", person.name);
-  printf("Apellido: %s\n", person.lastname);
+  printf("Identificacion: %s", person.id);
+  JUMPSPACE();
+  printf("Nombre: %s", person.name);
+  JUMPSPACE();
+  printf("Apellido: %s", person.lastname);
+  JUMPSPACE();
   printf("Fecha de nacimiento: ");
   showDate(person.dateOfBirth);
-  printf("Nacionalidad: %s\n", person.nationality);
-  printf("Telefono: %s\n", person.phone);
-  printf("Correo: %s\n", person.email);
+  printf("Nacionalidad: %s", person.nationality);
+  JUMPSPACE();
+  printf("Telefono: %s", person.phone);
+  JUMPSPACE();
+  printf("Correo: %s", person.email);
+  JUMPSPACE();
 }
 
 bool readPerson(Person Persons[]){
@@ -185,7 +201,7 @@ bool readPerson(Person Persons[]){
     scanf("%s", idPerson);
     if(verifyExistPerson(Persons, idPerson)){ 
       for (int i = 0; i < countPersons; i++){
-        if(strcmp(Persons[i].id, idPerson)){
+        if(strcmp(Persons[i].id, idPerson) == 0){
           showPerson(Persons[i]);
           return true;
         }
@@ -221,19 +237,24 @@ void viewBalances(Account Accounts[], Person Persons[]){
     printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
     scanf("%s", idPerson);
     if(verifyExistPerson(Persons, idPerson)){
+      existPerson = true;
       int countAccountsPerson = 0;
       for(int i = 0; i < countAccounts; i++){
-        if(strcmp(Accounts[i].idPerson, idPerson)){
-          printf("Numero de cuenta: %s\n", Accounts[i].nAccount);
-          printf("Balance: %f\n", Accounts[i].balance);
+        if(strcmp(Accounts[i].idPerson, idPerson) == 0){
+          printf("Numero de cuenta: %s", Accounts[i].nAccount);
+          JUMPSPACE();
+          printf("Balance: %f", Accounts[i].balance);
+          JUMPSPACE();
           countAccountsPerson++;
         }
       }
       if(countAccountsPerson == 0){
-        printf("No se encontraron cuentas asociadas a la persona ingresada\n");
+        printf("No se encontraron cuentas asociadas a la persona ingresada");
+        JUMPSPACE();
       }
     }else{
-      printf("\nNo se encontro una persona con ese numero");
+      JUMPSPACE();
+      printf("No se encontro una persona con ese numero");
     }
   }
 }
@@ -250,4 +271,6 @@ Person deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
 
       }
     }
+  }
+  return Persons[0];
 }
