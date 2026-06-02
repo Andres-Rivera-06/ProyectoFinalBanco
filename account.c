@@ -28,14 +28,15 @@ Account createAccount(Person persons[], Account Accounts[]){
       existPersonAccount = true;
       strcpy(account.idPerson, idPerson);
     }else{
-      printf("No se encontro una persona con ese numero de cedula\n");
+      printf("No se encontro una persona con ese numero de cedula");
+      JUMPSPACE();
     }
   }
   
   float balance = -1;
   while(balance < 0){
     printf("Ingrese el balance inicial de la cuenta: ");
-    scanf("%.2f ", &balance);
+    scanf("%f", &balance);
     if(balance < 0){
       printf("El balance inicial no puede ser menor a 0");
     }
@@ -68,7 +69,8 @@ bool consingAccount(Account Accounts[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("No existe una cuenta con ese numero de cuenta. \n");
+      printf("No existe una cuenta con ese numero de cuenta. ");
+      JUMPSPACE();
     }
   }
 
@@ -98,7 +100,7 @@ bool consingAccount(Account Accounts[]){
       aux = Accounts[i].balance;
     }
   }
-  printf("El nuevo monto de la cuenta es: %f", aux);
+  printf("El nuevo monto de la cuenta es: %.2f", aux);
   return true;
 }
 

@@ -243,7 +243,7 @@ void viewBalances(Account Accounts[], Person Persons[]){
         if(strcmp(Accounts[i].idPerson, idPerson) == 0){
           printf("Numero de cuenta: %s", Accounts[i].nAccount);
           JUMPSPACE();
-          printf("Balance: %f", Accounts[i].balance);
+          printf("Balance: %.2f", Accounts[i].balance);
           JUMPSPACE();
           countAccountsPerson++;
         }
