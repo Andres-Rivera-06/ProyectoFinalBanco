@@ -234,3 +234,17 @@ void viewBalances(Account Accounts[], Person Persons[]){
     }
   }
 }
+
+Person deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
+  char idPerson[30];
+  bool existPerson = false;
+  while(!existPerson){
+    printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
+    scanf("%s", idPerson);
+    if(verifyExistPerson(Persons, idPerson)){
+      int countAccountsPerson = 0;
+      for(int i = 0; i < countAccounts; i++){
+
+      }
+    }
+}
