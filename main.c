@@ -1,16 +1,16 @@
 #include <stdio.h>
 #include "estructuras_banco.h"
+#include <string.h>
 
 int countPersons = 0;
 int countAccounts = 0;
 int countTransfers = 0;
 
 enum OptionMenu{
-  GOOUT = 0,
+  GOOUT,
   CREATEPERSON,
   UPDATEPERSON,
   CREATEACCOUNT,
-  UPDATEACCOUNT,
   VIEWPERSONS,
   VIEWTRANSACTIONS,
   VIEWBALANCES,
@@ -31,13 +31,12 @@ void menu(){
   printf(" |  1.  CREAR PERSONA                     |\n");
   printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
   printf(" |  3.  CREAR CUENTA                      |\n");
-  printf(" |  4.  ACTUALIZAR DATOS DE CUENTA        |\n");
-  printf(" |  5.  VISUALIZAR PERSONAS               |\n");
-  printf(" |  6.  VER MOVIMIENTOS                   |\n");
-  printf(" |  7.  VER SALDOS                        |\n");
-  printf(" |  8.  TRANSFERIR                        |\n");
-  printf(" |  9.  RETIRAR                           |\n");
-  printf(" |  10. CONSIGNAR                         |\n");
+  printf(" |  4.  VISUALIZAR PERSONAS               |\n");
+  printf(" |  5.  VER MOVIMIENTOS                   |\n");
+  printf(" |  6.  VER SALDOS                        |\n");
+  printf(" |  7.  TRANSFERIR                        |\n");
+  printf(" |  8.  RETIRAR                           |\n");
+  printf(" |  9.  CONSIGNAR                         |\n");
   printf(" |  0.  SALIR                             |\n");
   printf(" |________________________________________|\n\n");
   printf("  Ingrese un opcion:  ");
@@ -48,32 +47,47 @@ void main(){
   Person Persons[20];
   Account Accounts[40];
   Transfer Transfers[120];
-  int option = 1;
 
+  countPersons = readPersons(Persons);
+  countAccounts = readAccounts(Accounts);
+  countTransfers = readTransfers(Transfers);
+
+  int option = 1;
   while (option != 0 ){
     menu();
     scanf("%d", &option);
     
     switch(option){
       case CREATEPERSON:
+        if(countPersons < 20){
         printf("Agregar nueva persona\n");
         Person person = createPerson(Persons);
         Persons[countPersons] = person;
         countPersons = countPersons + 1;
+        savePersons(Persons, countPersons);
         printf("Persona creada correctamente");
+        }else{
+
+        printf("No hay espacio para mas personas\n");
+        }
         break;
       case UPDATEPERSON:
-        updatePerson(Persons);
+      updatePerson(Persons);
+      savePersons(Persons, countPersons);
         break;
       case CREATEACCOUNT:
+        if(countAccounts < 40){
         printf("Crear cuenta\n");
         Account account = createAccount(Persons);
         Accounts[countAccounts] = account;
         countAccounts = countAccounts + 1;
+        saveAccounts(Accounts, countAccounts);
+        printf("Cuenta creada correstamente");
+        }else{
+
+        printf("No hay espacio para mas cuentas\n");
+        }
         printf("Cuenta creada correctamente");
-        break;
-      case UPDATEACCOUNT:
-    
         break;
       case VIEWPERSONS:
         listPersons(Persons);
@@ -89,18 +103,25 @@ void main(){
         viewBalances(Accounts, Persons);
         break;
       case TRANSFER:
-        Transfer transfer = createTransfer(Accounts);
-        Transfers[countTransfers] = transfer;
-        countTransfers = countTransfers + 1;
-        printf("Transferencia exitosa");
+          if(countTransfers < 120){
+            Transfer transfer = createTransfer(Accounts);
+            Transfers[countTransfers] = transfer;
+            countTransfers = countTransfers + 1;
+            saveAccounts(Accounts, countAccounts);
+            saveTransfers(Transfers, countTransfers);
+            printf("Transferencia exitosa");
+          }else{
+            printf("No hay espacio para mas transferencias\n");
+          }
         break;
       case WITHDRAW:
-        
+        saveAccounts(Accounts, countAccounts);
         break;
       case DEPOSIT:
         printf("Consignar cuenta");
         JUMPSPACE();
         if(consingAccount(Accounts)){
+          saveAccounts(Accounts, countAccounts);
           printf("Consignacion exitosa");
           JUMPSPACE();
         }else{
