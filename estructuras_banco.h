@@ -6,7 +6,7 @@ extern int countPersons;
 extern int countAccounts;
 extern int countTransfers;
 
-#define calcularImpuesto (amount) (amount * 0.004)
+#define tax(amount) ((amount) * 0.004)
 
 typedef struct {
   int day;
@@ -23,6 +23,7 @@ typedef struct {
   char phone[20];
   char email[50];
 } Person;
+
 
 typedef struct {
   char nAccount[20];
@@ -43,10 +44,11 @@ Person createPerson();
 Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
-bool existPerson(Person persons[], char idPerson[]);
+bool verifyExistPerson(Person persons[], char idPerson[]);
 Account createAccount(Person persons[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
+bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]);
 bool consingAccount(Account accounts[]);
-#endif  
+#endif
