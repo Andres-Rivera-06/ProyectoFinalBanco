@@ -139,7 +139,8 @@ void main(){
         break;
       case CALCULATEARNINGS:
         earnings(Accounts);
-        
+        saveAccounts(Accounts, countAccounts);
+        break;
       case GOOUT:
         printf("Gracias por usar nuestro sistema");
         break;

@@ -249,7 +249,7 @@ void earnings(Account Accounts[]){
   Account account = getAccount(Accounts, nAccount);
   float amountEarnings = calculate(account.balance, days);
 
-  printf("Las ganancias de la cuenta son de %f", amountEarnings);
+  printf("Las ganancias de la cuenta son de %.2f", amountEarnings);
   JUMPSPACE();
   printf("El total de la cuenta aplicando las ganacias seria %.f", account.balance + amountEarnings);
   JUMPSPACE();
@@ -268,6 +268,8 @@ void earnings(Account Accounts[]){
       for(int i = 0; i < countAccounts; i++){
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
+          printf("El nuevo balance de la cuenta es %.2f");
+          printf("");
         }
       }
     }else if(option == 2){
