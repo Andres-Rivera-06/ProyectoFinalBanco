@@ -6,7 +6,7 @@ extern int countPersons;
 extern int countAccounts;
 extern int countTransfers;
 
-#define tax(amount) ((amount) * 0.004)
+#define TAX(amount) ((amount) * 0.004)
 #define JUMPSPACE()printf("\n")
 
 typedef struct {
@@ -57,4 +57,11 @@ void viewBalances(Account Accounts[], Person Persons[]);
 Transfer createTransfer(Account Accounts[]);
 bool updatePerson(Person Persons[]);
 Date updateDate(Date date);
+
+void savePersons(Person persons[], int countPersons);
+int readPersons(Person persons[]);
+void saveAccounts(Account accounts[], int countAccounts);
+int readAccounts(Account accounts[]);
+void saveTransfers(Transfer transfers[], int countTransfers);
+int readTransfers(Transfer transfers[]);
 #endif

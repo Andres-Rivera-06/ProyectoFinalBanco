@@ -9,8 +9,8 @@ Transfer createTransfer(Account Accounts[]){
 
   char destinyAccount[20];
   char originAccount[20];
-  float amount;
-  float shippingCost;
+  float amount = 0;
+  float shippingCost = 0;
 
   // pedir datos de transfrencia 
   
@@ -21,7 +21,7 @@ Transfer createTransfer(Account Accounts[]){
     if(verifyExistAccount(Accounts, originAccount)){
       existAccount = true;
     }else{
-      printf(" No se encontro esta cuenta.");
+      printf(" No se encontro esta cuenta. \n");
     }
   }
   
@@ -36,7 +36,7 @@ Transfer createTransfer(Account Accounts[]){
         existAccount = true;
       }
     }else{
-      printf(" No se encontro esta cuenta.");
+      printf(" No se encontro esta cuenta. \n");
       JUMPSPACE();
     }
   }
@@ -44,15 +44,21 @@ Transfer createTransfer(Account Accounts[]){
   bool validAmount = false;
   while(!validAmount){
     printf(" Ingresa el valor a trasnferir :\n ");
-    scanf("%f", &amount);
+    if(scanf("%f", &amount) != 1){
+        printf(" Debe ingresar un numero valido.\n");
+        while(getchar() != '\n');
+        continue;
+    }
     if(amount <= 0){
       printf(" El monto debe ser mayor que cero.\n");
     }else{
-      shippingCost = tax(amount);
+      shippingCost = TAX(amount);
       if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){
         for(int i = 0; i < countAccounts; i++){
           if(strcmp(Accounts[i].nAccount,originAccount)==0){
-          Accounts[i].balance = Accounts[i].balance - amount + shippingCost;
+          Accounts[i].balance = Accounts[i].balance - amount - shippingCost;
+          validAmount = true;
+          break;
           }
         }
       }else{
@@ -63,6 +69,7 @@ Transfer createTransfer(Account Accounts[]){
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount,destinyAccount)==0){
       Accounts[i].balance = Accounts[i].balance + amount;
+      break;
     }
   }
   Date date = createDate();

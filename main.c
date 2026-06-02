@@ -39,6 +39,7 @@ void menu(){
   printf(" |  9.  CONSIGNAR                         |\n");
   printf(" |  0.  SALIR                             |\n");
   printf(" |________________________________________|\n\n");
+  JUMPSPACE();
   printf("  Ingrese un opcion:  ");
 
 }

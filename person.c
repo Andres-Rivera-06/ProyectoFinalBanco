@@ -3,7 +3,7 @@
 #include <string.h>
 
 enum UpdatePersonOption{
-  GOOUT = 0,
+  GOOUT,
   NAME,
   LASTNAME,
   DATEOFBIRTH,
@@ -30,16 +30,16 @@ Person createPerson(Person Persons[]){
   }
 
   printf("Ingrese el nombre: ");
-  scanf("%s", person.name);
+  scanf(" %[^\n]", person.name);
 
   printf("Ingrese el apellido: ");
-  scanf("%s", person.lastname);
+  scanf(" %[^\n]", person.lastname);
 
   printf("Fecha de nacimiento \n");
   person.dateOfBirth = createDate();
 
-  printf("Ingrese la nacionalidad: ");
-  scanf("%s", person.nationality);
+  printf("Ingrese el lugar de nacimiento: ");
+  scanf(" %[^\n]", person.nationality);
 
   printf("Ingrese el telefono: ");
   scanf("%s", person.phone);
@@ -52,11 +52,11 @@ Person createPerson(Person Persons[]){
 
 
 void showMenuEditPerson(){
-  printf(" 1. Nombre\n");
-  printf(" 2. Apellido\n");
-  printf(" 3. Fecha de nacimiento\n");
-  printf(" 4. Numero de telefono\n");
-  printf(" 5. Correo electronico\n");
+  printf(" 1. Nombre:\n");
+  printf(" 2. Apellido:\n");
+  printf(" 3. Fecha de nacimiento:\n");
+  printf(" 4. Numero de telefono:\n");
+  printf(" 5. Correo electronico:\n");
 }
 
 bool updatePerson(Person Persons[]){
@@ -85,7 +85,7 @@ bool updatePerson(Person Persons[]){
         switch (option){
         case NAME:
           printf("Ingrese el nuevo nombre: ");
-          scanf("%s", name);
+          scanf(" %[^\n]", name);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].name, name, sizeof(Persons[i].name) - 1);
@@ -95,8 +95,8 @@ bool updatePerson(Person Persons[]){
           break;
 
         case LASTNAME:
-          printf("Ingrese el nuevo apellido");
-          scanf("%s", lastname);
+          printf("Ingrese el nuevo apellido: ");
+          scanf(" %[^\n]", lastname);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].lastname, lastname, sizeof(Persons[i].lastname) - 1);
@@ -116,8 +116,8 @@ bool updatePerson(Person Persons[]){
           break;
 
         case NATIONALITY:
-          printf("Ingrese la nacionalidad");
-          scanf("%s", nationality);
+          printf("Ingrese la nacionalidad: ");
+          scanf(" %[^\n]", nationality);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
@@ -127,7 +127,7 @@ bool updatePerson(Person Persons[]){
           break;
 
         case PHONE:
-          printf("Ingrese el nuevo numero de telefono");
+          printf("Ingrese el nuevo numero de telefono: ");
           scanf("%s", phone);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
@@ -138,7 +138,7 @@ bool updatePerson(Person Persons[]){
           break;
 
         case EMAIL:
-          printf("Ingrese el nuevo correo");
+          printf("Ingrese el nuevo correo: ");
           scanf("%s", email);
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
@@ -150,6 +150,9 @@ bool updatePerson(Person Persons[]){
         case GOOUT:
           break;
         default:
+         JUMPSPACE();
+          printf("¡Opcion invalida!");
+          JUMPSPACE();
           break;
         }
       }
@@ -188,7 +191,7 @@ bool readPerson(Person Persons[]){
         }
       }
     }else{
-      printf("No se encontro una persona con esa identificacion");
+      printf("No se encontro una persona con esa identificacion.");
       return false;
     }
   }

@@ -56,7 +56,7 @@ bool consingAccount(Account Accounts[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("No existe una cuenta con ese numero de cuenta.");
+      printf("No existe una cuenta con ese numero de cuenta. \n");
     }
   }
 
@@ -64,7 +64,11 @@ bool consingAccount(Account Accounts[]){
   bool validAmount = false;
   while(!validAmount){
     printf("Ingrese la cantidad que desea consignar: ");
-    scanf("%f", &amount);
+    if(scanf("%f", &amount) != 1){
+        printf(" Debe ingresar un numero valido.\n");
+        while(getchar() != '\n');
+        continue;
+    }
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
     }else if(amount == 0){
@@ -106,7 +110,7 @@ bool withdrawAccount(Account Accounts[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("No existe una cuenta con ese numero de cuenta.");
+      printf("No existe una cuenta con ese numero de cuenta. \n");
     }
   }
 
@@ -114,7 +118,11 @@ bool withdrawAccount(Account Accounts[]){
   bool validAmount = false;
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
-    scanf("%f", &amount);
+    if(scanf("%f", &amount) != 1){
+        printf(" Debe ingresar un numero valido.\n");
+        while(getchar() != '\n');
+        continue;
+    }
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
     }else{
@@ -144,7 +152,7 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("Ingrese un numero de una cuenta existente.");
+      printf("Ingrese un numero de una cuenta existente. \n");
       JUMPSPACE();
     }
   }
