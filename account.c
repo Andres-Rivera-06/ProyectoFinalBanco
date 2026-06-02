@@ -193,3 +193,78 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
   }
   
 }
+
+//Esta funcion solo se debe llamar si se esta seguro que la cuenta existe
+Account getAccount(Account Accounts[], char nAccount[]){
+  for(int i = 0; i < countAccounts; i++){
+    if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+      return Accounts[i];
+    }
+  }
+  Account account;
+  return account;
+}
+
+//funcion recursiva para calcular el interes que va a obtener una cuenta pasado x dias 
+float calculate(float amount, int days){
+  if(days == 1){
+    return amount * 0.005;
+  }
+  return (amount * 0.005) + calculate(amount * 1.005, days - 1);
+}
+
+void earnings(Account Accounts[]){
+  printf("Calcular ganacias por intereses");
+
+  char nAccount[20];
+  int days = 0;
+
+  bool existAccount = false;
+  while(!existAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccount);
+    if(verifyExistAccount(Accounts, nAccount)){
+      existAccount = true;
+    }
+  }
+
+  while(days < 1){
+    printf("Ingrese la cantidad de dias que desea calcular las ganancias");
+    scanf("%d", &days);
+    if(days < 1){
+      printf("La cantidad de dias no puede ser menor a 1");
+    }
+  }
+
+  Account account = getAccount(Accounts, nAccount);
+  float amountEarnings = calculate(account.balance, days);
+
+  printf("Las ganancias de la cuenta son de %f", amountEarnings);
+  JUMPSPACE();
+  printf("El total de la cuenta aplicando las ganacias seria %f", account.balance + amountEarnings);
+  JUMPSPACE();
+
+  int option = 0;
+  while(option != 1 && option != 2){
+    printf("Desea aplicar las ganancias a la cuenta?");
+    JUMPSPACE();
+    printf("1. Aplicar");
+    JUMPSPACE();
+    printf("2. Cancelar");
+    JUMPSPACE();
+    printf("Ingrese la opcion: ");
+    scanf("%d", &option);
+    if(option == 1){
+      for(int i = 0; i < countAccounts; i++){
+        if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+          Accounts[i].balance = Accounts[i].balance + amountEarnings;
+        }
+      }
+    }else if(option == 2){
+      JUMPSPACE();
+    }else{
+      printf("Ingrese una de las opciones");
+      JUMPSPACE();
+    }
+  }
+}
