@@ -51,10 +51,10 @@ void main(){
   Person Persons[20];
   Account Accounts[40];
   Transfer Transfers[120];
-
-  countPersons = readPersons(Persons);
-  countAccounts = readAccounts(Accounts);
-  countTransfers = readTransfers(Transfers);
+                                                           
+  countPersons = readPersons(Persons);               
+  countAccounts = readAccounts(Accounts);         // carga informacion al iniciar el sistema
+  countTransfers = readTransfers(Transfers);       
 
   int option = 1;
   while (option != 0 ){

@@ -121,6 +121,7 @@ bool withdrawAccount(Account Accounts[]){
   bool existAccount = false;
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
+    JUMPSPACE();
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
