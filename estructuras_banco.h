@@ -60,6 +60,7 @@ Date updateDate(Date date);
 Account cleanAccount(Account account);
 bool withdrawAccount(Account Accounts[]);
 Date cleanDate(Date date);
+void earnings(Account Accounts[]);
 
 void savePersons(Person persons[], int countPersons);
 int readPersons(Person persons[]);

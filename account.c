@@ -214,13 +214,14 @@ Account getAccount(Account Accounts[], char nAccount[]){
 //funcion recursiva para calcular el interes que va a obtener una cuenta pasado x dias 
 float calculate(float amount, int days){
   if(days == 1){
-    return amount * 0.005;
+    return amount * 0.02;
   }
-  return (amount * 0.005) + calculate(amount * 1.005, days - 1);
+  return (amount * 0.005) + calculate(amount * 1.02, days - 1);
 }
 
 void earnings(Account Accounts[]){
   printf("Calcular ganacias por intereses");
+  JUMPSPACE();
 
   char nAccount[20];
   int days = 0;
@@ -235,10 +236,11 @@ void earnings(Account Accounts[]){
   }
 
   while(days < 1){
-    printf("Ingrese la cantidad de dias que desea calcular las ganancias");
+    printf("Ingrese la cantidad de dias que desea calcular las ganancias: ");
     scanf("%d", &days);
     if(days < 1){
       printf("La cantidad de dias no puede ser menor a 1");
+      JUMPSPACE();
     }
   }
 
@@ -247,7 +249,7 @@ void earnings(Account Accounts[]){
 
   printf("Las ganancias de la cuenta son de %f", amountEarnings);
   JUMPSPACE();
-  printf("El total de la cuenta aplicando las ganacias seria %f", account.balance + amountEarnings);
+  printf("El total de la cuenta aplicando las ganacias seria %.f", account.balance + amountEarnings);
   JUMPSPACE();
 
   int option = 0;
