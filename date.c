@@ -79,7 +79,8 @@ Date createDate(){
     printf("Ingrese el anio: ");
     scanf("%d", &year);
     if (year < 1900){
-      printf("Ingrese un año valido\n");
+      printf("Ingrese un anio valido");
+      JUMPSPACE();
     }
   }
   date.year = year;
@@ -88,7 +89,8 @@ Date createDate(){
     printf("Ingrese el mes: ");
     scanf("%d", &month);
     if(month < 1 || month > 12){
-      printf("Ingrese un mes valido\n");
+      printf("Ingrese un mes valido");
+      JUMPSPACE();
     }
   }
   date.month = month;
@@ -97,10 +99,12 @@ Date createDate(){
     printf("Ingrese el dia: ");
     scanf("%d", &day);
     if (day < 1 || day > 31){
-      printf("Ingrese un dia valido\n");
+      printf("Ingrese un dia valido");
+      JUMPSPACE();
     }else{
       if(!checkDayMonth(day, month)){
-        printf("Ingrese un dia valido para el mes seleccionado\n");
+        printf("Ingrese un dia valido para el mes seleccionado");
+        JUMPSPACE();
         day = 0;
       }else{
         date.day = day;
@@ -112,5 +116,6 @@ Date createDate(){
 }
 
 void showDate(Date date){
-  printf("%d/%d/%d\n", date.day, date.month, date.year);
+  printf("%d/%d/%d", date.day, date.month, date.year);
+  JUMPSPACE();
 }

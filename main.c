@@ -110,7 +110,9 @@ void main(){
         printf("Gracias por usar nuestro sistema");
         break;
       default:
-      printf("\n ¡Opcion invalida!\n");
+      JUMPSPACE();
+      printf(" ¡Opcion invalida!");
+      JUMPSPACE();
       break;
       
     }

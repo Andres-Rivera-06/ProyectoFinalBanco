@@ -45,7 +45,8 @@ bool verifyExistAccount(Account Accounts[], char nAccount[]){
 }
 
 bool consingAccount(Account Accounts[]){
-  printf("Consignar dinero a una cuenta\n");
+  printf("Consignar dinero a una cuenta");
+  JUMPSPACE();
 
   char nAccount[20];
 
@@ -68,7 +69,8 @@ bool consingAccount(Account Accounts[]){
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
     }else if(amount == 0){
-      printf("El monto no debe ser cero\n");
+      printf("El monto no debe ser cero");
+      JUMPSPACE();
     }else{
       validAmount = true;
     } 
@@ -116,7 +118,8 @@ bool withdrawAccount(Account Accounts[]){
     printf("Ingrese la cantidad que desea retirar: ");
     scanf("%f", &amount);
     if(amount < 0){
-      printf("El monto no debe ser menor a 0");
+      printf("El monto a retirar no puede ser menor a 0");
+      JUMPSPACE();
     }else{
       validAmount = true;
     } 
@@ -124,7 +127,7 @@ bool withdrawAccount(Account Accounts[]){
   int aux = 0;
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount, nAccount)){
-      Accounts[i].balance = Accounts[i].balance - amount;
+      Accounts[i].balance = Accounts[i].balance - (amount + tax(amount));
       aux = Accounts[i].balance;
     }
   }
@@ -153,7 +156,8 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
       printf("--Tranferencia Enviada--\n");
       showTransfer(Transfers[i]);
     }else if(strcmp(Transfers[i].destinyAccount, nAccount) == 0){
-      printf("--Tranferencia Recibida--\n");
+      printf("--Tranferencia Recibida--");
+      JUMPSPACE();
       showTransfer(Transfers[i]);
     }
   }
