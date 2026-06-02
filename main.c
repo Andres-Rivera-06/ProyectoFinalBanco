@@ -27,10 +27,8 @@ void menu(){
   JUMPSPACE();
   printf("\n          BANCO NEOBANCK          \n");
   printf(" _________________________________________");
-  JUMPSPACE();
   printf(" |                                        |\n");
-  printf(" |  1.  CREAR PERSONA                     |");
-  JUMPSPACE();
+  printf(" |  1.  CREAR PERSONA                     |\n");
   printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
   printf(" |  3.  CREAR CUENTA                      |\n");
   printf(" |  4.  ACTUALIZAR DATOS DE CUENTA        |\n");
@@ -82,6 +80,7 @@ void main(){
         break;
       case VIEWTRANSACTIONS:
         printf("Ver Movimientos");
+        JUMPSPACE();
         showAccountTransfers(Accounts, Transfers);
         break;
       case VIEWBALANCES:
@@ -99,18 +98,23 @@ void main(){
         
         break;
       case DEPOSIT:
-        printf("Consignar cuenta\n");
+        printf("Consignar cuenta");
+        JUMPSPACE();
         if(consingAccount(Accounts)){
           printf("Consignacion exitosa");
+          JUMPSPACE();
         }else{
           printf("Consignacion fallida, vuelva a intentarlo");
+          JUMPSPACE();
         }
         break;
       case GOOUT:
         printf("Gracias por usar nuestro sistema");
         break;
       default:
-      printf("\n ¡Opcion invalida!\n");
+      JUMPSPACE();
+      printf("¡Opcion invalida!");
+      JUMPSPACE();
       break;
       
     }

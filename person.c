@@ -107,11 +107,10 @@ bool updatePerson(Person Persons[]){
 
         case DATEOFBIRTH:
           printf("Modificar fecha de nacimiento");
-          dateOfBirth = createDate();
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
-              Persons[i].dateOfBirth = dateOfBirth;
-              printf("Cambio de fecha de nacimiento exitoso");
+              Persons[i].dateOfBirth = updateDate(Persons[i].dateOfBirth);
+              printf("Cambio de fecha de nacimiento exitosa");
             }
           }
           break;
@@ -122,7 +121,7 @@ bool updatePerson(Person Persons[]){
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
-              printf("Cambio de nacionalidad exitoso");
+              printf("Cambio de nacionalidad exitosa");
             }
           }
           break;
@@ -144,11 +143,12 @@ bool updatePerson(Person Persons[]){
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].email, email, sizeof(Persons[i].email) - 1);
-              printf("Cambio de telefono exitoso");
+              printf("Cambio de correo exitoso");
             }
           }
           break;
-
+        case GOOUT:
+          break;
         default:
           break;
         }
