@@ -116,6 +116,7 @@ bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]){
 
 bool withdrawAccount(Account Accounts[]){
   printf("Retirar dinero de la cuenta");
+  JUMPSPACE();
 
   char nAccount[20];
 
@@ -127,7 +128,8 @@ bool withdrawAccount(Account Accounts[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("No existe una cuenta con ese numero de cuenta. \n");
+      printf("No existe una cuenta con ese numero de cuenta.");
+      JUMPSPACE();
     }
   }
 
