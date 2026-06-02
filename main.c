@@ -32,7 +32,7 @@ void menu(){
   printf("\n");
   printf(" ╔════════════════════════════════════════╗\n");
   printf(" ║             BANCO NEOBANCK             ║\n");
-  printf(" ╠════════════════════════════════════════╣\n");
+  printf(" ╟────────────────────────────────────────╢\n");
   printf(" ║  1.  CREAR PERSONA                     ║\n");
   printf(" ║  2.  ACTUALIZAR DATOS DE PERSONA       ║\n");
   printf(" ║  3.  CREAR CUENTA                      ║\n");
@@ -43,10 +43,11 @@ void menu(){
   printf(" ║  8.  RETIRAR                           ║\n");
   printf(" ║  9.  CONSIGNAR                         ║\n");
   printf(" ║ 10.  CALCULAR GANANCIAS POR INTERESES  ║\n");
+  printf(" ╟────────────────────────────────────────╢\n");
   printf(" ║  0.  SALIR                             ║\n");
   printf(" ╚════════════════════════════════════════╝\n");
   JUMPSPACE();
-  printf(" Ingrese un opcion:  ");
+  printf("Ingrese un opcion:  ");
 
 }
 
