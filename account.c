@@ -35,7 +35,7 @@ Account createAccount(Person persons[], Account Accounts[]){
   float balance = -1;
   while(balance < 0){
     printf("Ingrese el balance inicial de la cuenta: ");
-    scanf("%f", &balance);
+    scanf("%.2f ", &balance);
     if(balance < 0){
       printf("El balance inicial no puede ser menor a 0");
     }
