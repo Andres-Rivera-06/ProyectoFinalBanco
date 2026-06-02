@@ -156,7 +156,7 @@ bool withdrawAccount(Account Accounts[]){
   float aux = 0;
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount, nAccount) == 0){
-      Accounts[i].balance = Accounts[i].balance - (amount + tax(amount));
+      Accounts[i].balance = Accounts[i].balance - (amount + TAX(amount));
       aux = Accounts[i].balance;
     }
   }
@@ -202,6 +202,9 @@ Account getAccount(Account Accounts[], char nAccount[]){
     }
   }
   Account account;
+  account.balance = 0;
+  strcpy(account.idPerson, "");
+  strcpy(account.nAccount, "");
   return account;
 }
 
