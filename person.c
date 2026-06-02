@@ -196,9 +196,7 @@ bool readPerson(Person Persons[]){
 }
 
 void listPersons(Person persons[]){
-  printf("holin in list persons");
   for (int i = 0; i < countPersons; i++){
-    printf("Nombre en list persons: %s", persons[i].name);
     showPerson(persons[i]);
     printf("\n");
   }
@@ -206,7 +204,7 @@ void listPersons(Person persons[]){
 
 bool verifyExistPerson(Person persons[], char idPerson[]){
   for(int i = 0; i < countPersons; i++){
-    if(strcmp(persons[i].id, idPerson)){
+    if(strcmp(persons[i].id, idPerson) == 0){
       return true;
     }
   }

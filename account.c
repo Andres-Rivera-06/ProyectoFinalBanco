@@ -13,7 +13,7 @@ Account createAccount(Person persons[]){
   while (!existPersonAccount){
     printf("Ingrese la identificacion de la persona: ");
     scanf("%s", idPerson);
-    if(existPerson(persons, idPerson)){
+    if(verifyExistPerson(persons, idPerson)){
       existPersonAccount = true;
       strcpy(account.idPerson, idPerson);
     }else{

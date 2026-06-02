@@ -22,11 +22,15 @@ enum OptionMenu{
 
 
 void menu(){
-   
+  JUMPSPACE();
+  JUMPSPACE();
+  JUMPSPACE();
   printf("\n          BANCO NEOBANCK          \n");
-  printf("  _______________________________________\n");
-  printf(" |                                        |\n\n");
-  printf(" |  1.  CREAR PERSONA                     |\n");
+  printf(" _________________________________________");
+  JUMPSPACE();
+  printf(" |                                        |\n");
+  printf(" |  1.  CREAR PERSONA                     |");
+  JUMPSPACE();
   printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
   printf(" |  3.  CREAR CUENTA                      |\n");
   printf(" |  4.  ACTUALIZAR DATOS DE CUENTA        |\n");
@@ -56,20 +60,19 @@ void main(){
       case CREATEPERSON:
         printf("Agregar nueva persona\n");
         Person person = createPerson(Persons);
-        printf("%s", person.name);
         Persons[countPersons] = person;
         countPersons = countPersons + 1;
         printf("Persona creada correctamente");
         break;
       case UPDATEPERSON:
-  
+        updatePerson(Persons);
         break;
       case CREATEACCOUNT:
         printf("Crear cuenta\n");
         Account account = createAccount(Persons);
         Accounts[countAccounts] = account;
         countAccounts = countAccounts + 1;
-        printf("Cuenta creada correstamente");
+        printf("Cuenta creada correctamente");
         break;
       case UPDATEACCOUNT:
     
@@ -78,13 +81,19 @@ void main(){
         listPersons(Persons);
         break;
       case VIEWTRANSACTIONS:
-        
+        printf("Ver Movimientos");
+        showAccountTransfers(Accounts, Transfers);
         break;
       case VIEWBALANCES:
-        
+        printf("Ver balances persona");
+        JUMPSPACE();
+        viewBalances(Accounts, Persons);
         break;
       case TRANSFER:
-        
+        Transfer transfer = createTransfer(Accounts);
+        Transfers[countTransfers] = transfer;
+        countTransfers = countTransfers + 1;
+        printf("Transferencia exitosa");
         break;
       case WITHDRAW:
         
