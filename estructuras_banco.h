@@ -46,7 +46,7 @@ Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);
 bool verifyExistPerson(Person persons[], char idPerson[]);
-Account createAccount(Person persons[]);
+Account createAccount(Person persons[], Account Accounts[]);
 bool verifyExistAccount(Account accounts[], char nAccount[]);
 void showTransfer(Transfer transfer);
 void listPersons(Person persons[]);
@@ -57,4 +57,5 @@ void viewBalances(Account Accounts[], Person Persons[]);
 Transfer createTransfer(Account Accounts[]);
 bool updatePerson(Person Persons[]);
 Date updateDate(Date date);
+bool withdrawAccount(Account Accounts[]);
 #endif

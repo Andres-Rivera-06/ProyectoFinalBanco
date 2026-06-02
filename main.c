@@ -26,7 +26,7 @@ void menu(){
   JUMPSPACE();
   JUMPSPACE();
   printf("\n          BANCO NEOBANCK          \n");
-  printf(" _________________________________________");
+  printf(" _________________________________________\n");
   printf(" |                                        |\n");
   printf(" |  1.  CREAR PERSONA                     |\n");
   printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
@@ -78,7 +78,7 @@ void main(){
       case CREATEACCOUNT:
         if(countAccounts < 40){
         printf("Crear cuenta\n");
-        Account account = createAccount(Persons);
+        Account account = createAccount(Persons, Accounts);
         Accounts[countAccounts] = account;
         countAccounts = countAccounts + 1;
         saveAccounts(Accounts, countAccounts);
@@ -115,6 +115,7 @@ void main(){
           }
         break;
       case WITHDRAW:
+        withdrawAccount(Accounts);
         saveAccounts(Accounts, countAccounts);
         break;
       case DEPOSIT:

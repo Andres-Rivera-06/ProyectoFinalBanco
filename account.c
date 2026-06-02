@@ -2,11 +2,22 @@
 #include <string.h>
 #include "estructuras_banco.h"
 
-Account createAccount(Person persons[]){
+Account createAccount(Person persons[], Account Accounts[]){
   Account account;
 
-  printf("Ingrese el numero de cuenta: ");
-  scanf("%s", account.nAccount);
+  char nAccountAux[30];
+  bool existNAccount = false;
+  while (!existNAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccountAux);
+    if(verifyExistAccount(Accounts, nAccountAux)){
+      printf("Este numero de cuenta ya existe");
+      JUMPSPACE();
+    }else{
+      strcpy(account.nAccount, nAccountAux);
+      existNAccount = true;
+    }
+  }
   
   char idPerson[30];
   bool existPersonAccount = false;
@@ -117,11 +128,21 @@ bool withdrawAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
     scanf("%f", &amount);
-    if(amount < 0){
-      printf("El monto a retirar no puede ser menor a 0");
+    if(amount <= 0){
+      printf("El monto a retirar debe ser mayor a cero");
       JUMPSPACE();
     }else{
-      validAmount = true;
+      for(int i = 0; i < countAccounts; i++){
+        if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+          if (Accounts[i].balance >= (amount + tax(amount))){
+            validAmount = true;
+          }
+          else{
+            printf("Fondos insuficientes");
+            JUMPSPACE();
+          }
+        }
+      }
     } 
   }
   float aux = 0;
