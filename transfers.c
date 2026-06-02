@@ -43,7 +43,7 @@ Transfer createTransfer(Account Accounts[]){
 
   bool validAmount = false;
   while(!validAmount){
-    printf(" Ingresa el valor a trasnferir :\n ");
+    printf(" Ingresa el valor a trasnferir : ");
     if(scanf("%f", &amount) != 1){
         printf(" Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
