@@ -268,8 +268,8 @@ void earnings(Account Accounts[]){
       for(int i = 0; i < countAccounts; i++){
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
-          printf("El nuevo balance de la cuenta es %.2f");
-          printf("");
+          printf("El nuevo balance de la cuenta es %.2f", account.balance);
+          JUMPSPACE();
         }
       }
     }else if(option == 2){
