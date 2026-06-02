@@ -17,7 +17,8 @@ enum OptionMenu{
   VIEWBALANCES,
   TRANSFER,
   WITHDRAW,
-  DEPOSIT
+  DEPOSIT,
+  CALCULATEARNINGS
 };
 
 
@@ -38,6 +39,7 @@ void menu(){
   printf(" |  7.  TRANSFERIR                        |\n");
   printf(" |  8.  RETIRAR                           |\n");
   printf(" |  9.  CONSIGNAR                         |\n");
+  printf(" |  10. CALCULAR GANANCIAS POR INTERESES  |\n");
   printf(" |  0.  SALIR                             |\n");
   printf(" |________________________________________|\n\n");
   JUMPSPACE();
@@ -82,17 +84,17 @@ void main(){
         break;
       case CREATEACCOUNT:
         if(countAccounts < 40){
-        printf("Crear cuenta\n");
-        Account account = createAccount(Persons, Accounts);
-        Accounts[countAccounts] = account;
-        countAccounts = countAccounts + 1;
-        saveAccounts(Accounts, countAccounts);
-        printf("Cuenta creada correstamente");
+          printf("Crear cuenta\n");
+          Account account = createAccount(Persons, Accounts);
+          Accounts[countAccounts] = account;
+          countAccounts = countAccounts + 1;
+          saveAccounts(Accounts, countAccounts);
+          printf("Cuenta creada correctamente");
+          JUMPSPACE();
         }else{
-
-        printf("No hay espacio para mas cuentas\n");
+          printf("No hay espacio para mas cuentas");
+          JUMPSPACE();
         }
-        printf("Cuenta creada correctamente");
         break;
       case VIEWPERSONS:
         listPersons(Persons);
@@ -135,6 +137,9 @@ void main(){
           JUMPSPACE();
         }
         break;
+      case CALCULATEARNINGS:
+        earnings(Accounts);
+        
       case GOOUT:
         printf("Gracias por usar nuestro sistema");
         break;
