@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include "estructuras_banco.h"
 #include <stdbool.h>
+#include <string.h>
 
 
-bool transfers(Account Accounts[]){
-  Account transfers;
+Transfer createTransfer(Account Accounts[]){
+  Transfer transfer;
 
   char destinyAccount[20];
   char originAccount[20];
@@ -61,10 +62,15 @@ bool transfers(Account Accounts[]){
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount,destinyAccount)==0){
       Accounts[i].balance = Accounts[i].balance + amount;
-      printf(" Transferencia exitosa.! ");
-      return true;
     }
   }
+  Date date = createDate();
+  transfer.amount = amount;
+  transfer.dateTransfer = date;
+  transfer.shippingcost = shippingCost;
+  strcpy(transfer.originAccount, originAccount);
+  strcpy(transfer.destinyAccount, destinyAccount);
+  return transfer;
 }
 
 

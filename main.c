@@ -22,11 +22,15 @@ enum OptionMenu{
 
 
 void menu(){
-   
+  JUMPSPACE();
+  JUMPSPACE();
+  JUMPSPACE();
   printf("\n          BANCO NEOBANCK          \n");
-  printf("  _______________________________________\n");
-  printf(" |                                        |\n\n");
-  printf(" |  1.  CREAR PERSONA                     |\n");
+  printf(" _________________________________________");
+  JUMPSPACE();
+  printf(" |                                        |\n");
+  printf(" |  1.  CREAR PERSONA                     |");
+  JUMPSPACE();
   printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
   printf(" |  3.  CREAR CUENTA                      |\n");
   printf(" |  4.  VISUALIZAR PERSONAS               |\n");
@@ -60,7 +64,6 @@ void main(){
         if(countPersons < 20){
         printf("Agregar nueva persona\n");
         Person person = createPerson(Persons);
-        printf("%s", person.name);
         Persons[countPersons] = person;
         countPersons = countPersons + 1;
         savePersons(Persons, countPersons);
@@ -71,7 +74,8 @@ void main(){
         }
         break;
       case UPDATEPERSON:
-        savePersons(Persons, countPersons);
+      updatePerson(Persons);
+      savePersons(Persons, countPersons);
         break;
       case CREATEACCOUNT:
         if(countAccounts < 40){
@@ -85,23 +89,30 @@ void main(){
 
         printf("No hay espacio para mas cuentas\n");
         }
+        printf("Cuenta creada correctamente");
         break;
       case VIEWPERSONS:
         listPersons(Persons);
         break;
       case VIEWTRANSACTIONS:
-        
+        printf("Ver Movimientos");
+        showAccountTransfers(Accounts, Transfers);
         break;
       case VIEWBALANCES:
-        
+        printf("Ver balances persona");
+        JUMPSPACE();
+        viewBalances(Accounts, Persons);
         break;
       case TRANSFER:
           if(countTransfers < 120){
-        saveAccounts(Accounts, countAccounts);
-        saveTransfers(Transfers, countTransfers);
+            Transfer transfer = createTransfer(Accounts);
+            Transfers[countTransfers] = transfer;
+            countTransfers = countTransfers + 1;
+            saveAccounts(Accounts, countAccounts);
+            saveTransfers(Transfers, countTransfers);
+            printf("Transferencia exitosa");
           }else{
-
-        printf("No hay espacio para mas transferencias\n");
+            printf("No hay espacio para mas transferencias\n");
           }
         break;
       case WITHDRAW:

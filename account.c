@@ -13,7 +13,7 @@ Account createAccount(Person persons[]){
   while (!existPersonAccount){
     printf("Ingrese la identificacion de la persona: ");
     scanf("%s", idPerson);
-    if(existPerson(persons, idPerson)){
+    if(verifyExistPerson(persons, idPerson)){
       existPersonAccount = true;
       strcpy(account.idPerson, idPerson);
     }else{
@@ -63,7 +63,7 @@ bool consingAccount(Account Accounts[]){
   float amount = -1;
   bool validAmount = false;
   while(!validAmount){
-    printf("Ingrese la cantidad que desea consignar: ");
+    printf("Ingrese la cantidad que desea retirar: ");
     scanf("%f", &amount);
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
@@ -77,7 +77,7 @@ bool consingAccount(Account Accounts[]){
   float aux = 0;
   for(int i = 0; i < countAccounts; i++){
     if(strcmp(Accounts[i].nAccount, nAccount)){
-      Accounts[i].balance = Accounts[i].balance + amount;
+      Accounts[i].balance = Accounts[i].balance - (amount + calcularImpuesto(amount));
       aux = Accounts[i].balance;
     }
   }
@@ -94,20 +94,44 @@ bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]){
   return false;
 }
 
+bool withdrawAccount(Account Accounts[]){
+  printf("Retirar dinero de la cuenta");
 
-float retiro (float amount, char nAccount[]){
-  if ( strcmp(nAccount[].nAccount)) 
-  } float retiro (float amount, char nAccount[]){
-    float withdraw;
-    printf("Ingrese la cantidad que desea retirar: ");
-    scanf("%f", &withdraw);
-    if (withdraw > amount){
-      printf("fondos insuficientes");
+  char nAccount[20];
+
+  bool existAccount = false;
+  while(!existAccount){
+    printf("Ingrese el numero de cuenta: ");
+    scanf("%s", nAccount);
+    if(verifyExistAccount(Accounts, nAccount)){
+      existAccount = true;
     }else{
-      withdraw = amount - calcularImpuesto(withdraw);
-      printf("el monto a retirar es: %f", withdraw);) 
+      printf("No existe una cuenta con ese numero de cuenta.");
     }
-}
+  }
+
+  float amount = -1;
+  bool validAmount = false;
+  while(!validAmount){
+    printf("Ingrese la cantidad que desea retirar: ");
+    scanf("%f", &amount);
+    if(amount < 0){
+      printf("El monto no debe ser menor a 0");
+    }else{
+      validAmount = true;
+    } 
+  }
+  int aux = 0;
+  for(int i = 0; i < countAccounts; i++){
+    if(strcmp(Accounts[i].nAccount, nAccount)){
+      Accounts[i].balance = Accounts[i].balance - amount;
+      aux = Accounts[i].balance;
+    }
+  }
+  printf("El nuevo monto de la cuenta es: %f", aux);
+  return true;
+}  
+
 
 void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
 

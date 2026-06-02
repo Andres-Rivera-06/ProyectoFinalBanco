@@ -13,7 +13,7 @@ enum UpdatePersonOption{
 };
 
 
-Person createPerson(){
+Person createPerson(Person Persons[]){
   Person person;
   
   char idPerson[30];
@@ -79,7 +79,7 @@ bool updatePerson(Person Persons[]){
       
       while(option != 0){
         showMenuEditPerson();
-        prinf("Ingrese una opcion ");
+        printf("Ingrese una opcion ");
         scanf("%d", &option);
 
         switch (option){
@@ -159,6 +159,7 @@ bool updatePerson(Person Persons[]){
       
     }
   }
+  return true;
 }
 
 
@@ -191,12 +192,11 @@ bool readPerson(Person Persons[]){
       return false;
     }
   }
+  return false;
 }
 
 void listPersons(Person persons[]){
-  printf("holin in list persons");
   for (int i = 0; i < countPersons; i++){
-    printf("Nombre en list persons: %s", persons[i].name);
     showPerson(persons[i]);
     printf("\n");
   }
@@ -204,14 +204,14 @@ void listPersons(Person persons[]){
 
 bool verifyExistPerson(Person persons[], char idPerson[]){
   for(int i = 0; i < countPersons; i++){
-    if(strcmp(persons[i].id, idPerson)){
+    if(strcmp(persons[i].id, idPerson) == 0){
       return true;
     }
   }
   return false;
 }
 
-void viewBalances(Account Accounts[]){
+void viewBalances(Account Accounts[], Person Persons[]){
   char idPerson[30];
   bool existPerson = false;
   while(!existPerson){
