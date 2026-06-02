@@ -203,3 +203,10 @@ Date updateDate(Date date){
   }
   return date;
 }
+
+Date cleanDate(Date date){
+  date.day = 0;
+  date.month = 0;
+  date.year = 0;
+  return date; 
+}

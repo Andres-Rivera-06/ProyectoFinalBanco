@@ -57,6 +57,9 @@ void viewBalances(Account Accounts[], Person Persons[]);
 Transfer createTransfer(Account Accounts[]);
 bool updatePerson(Person Persons[]);
 Date updateDate(Date date);
+Account cleanAccount(Account account);
+bool withdrawAccount(Account Accounts[]);
+Date cleanDate(Date date);
 
 void savePersons(Person persons[], int countPersons);
 int readPersons(Person persons[]);
@@ -64,5 +67,4 @@ void saveAccounts(Account accounts[], int countAccounts);
 int readAccounts(Account accounts[]);
 void saveTransfers(Transfer transfers[], int countTransfers);
 int readTransfers(Transfer transfers[]);
-bool withdrawAccount(Account Accounts[]);
 #endif

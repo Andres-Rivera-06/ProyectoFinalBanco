@@ -268,3 +268,11 @@ void earnings(Account Accounts[]){
     }
   }
 }
+
+
+Account cleanAccount(Account account){
+  account.balance = 0;
+  strcpy(account.idPerson, "");
+  strcpy(account.nAccount, "");
+  return account;
+}

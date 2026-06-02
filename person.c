@@ -254,23 +254,59 @@ void viewBalances(Account Accounts[], Person Persons[]){
       }
     }else{
       JUMPSPACE();
-      printf("No se encontro una persona con ese numero");
+      printf("No se encontro una persona con esta identificacion");
     }
   }
 }
 
-Person deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
+Person cleanPerson(Person person){
+  person.dateOfBirth = cleanDate(person.dateOfBirth);
+  strcpy(person.id, "");
+  strcpy(person.email, "");
+  strcpy(person.name, "");
+  strcpy(person.lastname, "");
+  strcpy(person.nationality, "");
+  strcpy(person.phone, "");
+  return person;
+}
+
+bool deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
+
   char idPerson[30];
   bool existPerson = false;
+  
   while(!existPerson){
-    printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
+    printf("Ingrese la identificacion de la persona que desea eliminar: ");
     scanf("%s", idPerson);
     if(verifyExistPerson(Persons, idPerson)){
       int countAccountsPerson = 0;
+      existPerson = true;
       for(int i = 0; i < countAccounts; i++){
-
+        if(strcmp(Accounts[i].idPerson, idPerson) == 0){
+          if(Accounts[i].balance != 0){
+            printf("Para eliminar a una persona todas sus cuentas deben estar con balance 0");
+            return false;
+          }
+        }
       }
+      for(int i = 0; i < countAccounts; i++){
+        if(strcmp(Accounts[i].idPerson, idPerson) == 0){
+          Accounts[i] = cleanAccount(Accounts[i]); 
+        }
+      }
+      for(int i = 0; i < countPersons; i++){
+        if(strcmp(Persons[i].id, idPerson) == 0){
+          Persons[i] = cleanPerson(Persons[i]);
+          break;
+        }
+      }
+      printf("La persona y sus cuentas asociadas han sido eliminadas correctamente");
+      JUMPSPACE();
+      return true;
+    }else{
+      printf("No se encontro una persona con esta identificacion");
     }
   }
-  return Persons[0];
+  return false;
 }
+
