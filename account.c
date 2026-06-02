@@ -101,6 +101,7 @@ bool consingAccount(Account Accounts[]){
     }
   }
   printf("El nuevo monto de la cuenta es: %.2f", aux);
+  JUMPSPACE();
   return true;
 }
 
@@ -135,7 +136,8 @@ bool withdrawAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.\n");
+        printf(" Debe ingresar un numero valido.");
+        JUMPSPACE();
         while(getchar() != '\n');
         continue;
     }
@@ -163,7 +165,7 @@ bool withdrawAccount(Account Accounts[]){
       aux = Accounts[i].balance;
     }
   }
-  printf("El nuevo monto de la cuenta es: %f", aux);
+  printf("El nuevo monto de la cuenta es: %.2f", aux);
   return true;
 }  
 
