@@ -38,7 +38,7 @@ Person createPerson(Person Persons[]){
   printf("Fecha de nacimiento \n");
   person.dateOfBirth = createDate();
 
-  printf("Ingrese el lugar de nacimiento: ");
+  printf("Ingrese la nacionalidad: ");
   scanf(" %[^\n]", person.nationality);
 
   printf("Ingrese el telefono: ");

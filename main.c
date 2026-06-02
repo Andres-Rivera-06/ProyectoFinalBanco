@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "estructuras_banco.h"
 #include <string.h>
+#include <windows.h>
 
 int countPersons = 0;
 int countAccounts = 0;
@@ -55,6 +56,9 @@ void main(){
 
   int option = 1;
   while (option != 0 ){
+    JUMPSPACE();
+    printf("Cargando menu...");
+    Sleep(4000);
     menu();
     scanf("%d", &option);
     
