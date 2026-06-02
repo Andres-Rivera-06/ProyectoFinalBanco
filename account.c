@@ -181,20 +181,26 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("Ingrese un numero de una cuenta existente. \n");
+      printf("Ingrese un numero de una cuenta existente.");
       JUMPSPACE();
     }
   }
-
+  int aux = 0;
   for(int i = 0; i < countTransfers; i++){
     if(strcmp(Transfers[i].originAccount, nAccount) == 0){
       printf("--Tranferencia Enviada--\n");
       showTransfer(Transfers[i]);
+      aux++;
     }else if(strcmp(Transfers[i].destinyAccount, nAccount) == 0){
       printf("--Tranferencia Recibida--");
       JUMPSPACE();
       showTransfer(Transfers[i]);
+      aux++;
     }
+  }
+  if(aux == 0){
+    printf("La cuenta no tiene transferencias");
+    JUMPSPACE();
   }
   
 }

@@ -71,6 +71,7 @@ Transfer createTransfer(Account Accounts[]){
       break;
     }
   }
+  printf("Fecha de la transferencia");
   Date date = createDate();
   transfer.amount = amount;
   transfer.dateTransfer = date;

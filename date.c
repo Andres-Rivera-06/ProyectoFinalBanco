@@ -83,10 +83,10 @@ Date createDate(){
   
   while (year < 1900){
     
-    printf("Ingrese el anio: ");
+    printf("Ingrese el año: ");
     scanf("%d", &year);
     if (year < 1900){
-      printf("Ingrese un anio valido");
+      printf("Ingrese un año valido");
       JUMPSPACE();
     }
   }
@@ -132,7 +132,7 @@ void showMenuEditDate(){
   JUMPSPACE();
   printf("2. mes");
   JUMPSPACE();
-  printf("3. Anio");
+  printf("3. año");
   JUMPSPACE();
 }
 
@@ -182,12 +182,12 @@ Date updateDate(Date date){
     case YEAR:
               
       while(!validDate){
-        printf("Ingrese el anio: ");
+        printf("Ingrese el año: ");
         scanf("%d", &year);
         if(year < 1900){
           date.year = year;
           validDate = true;
-          printf("Anio actualizado exitosamente");
+          printf("año actualizado exitosamente");
           JUMPSPACE();
         }else{
           printf("La fecha ingresada no es valida");
