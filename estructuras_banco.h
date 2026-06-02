@@ -56,4 +56,5 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]);
 void viewBalances(Account Accounts[], Person Persons[]);
 Transfer createTransfer(Account Accounts[]);
 bool updatePerson(Person Persons[]);
+Date updateDate(Date date);
 #endif

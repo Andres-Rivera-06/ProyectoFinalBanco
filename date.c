@@ -2,6 +2,13 @@
 #include <stdbool.h>
 #include "estructuras_banco.h"
 
+enum UpdateDateOption{
+  GOOUT,
+  DAY,
+  MONTH,
+  YEAR
+};
+
 bool checkDayMonth(int day, int month){
   switch (month){
   case 1:
@@ -118,4 +125,81 @@ Date createDate(){
 void showDate(Date date){
   printf("%d/%d/%d", date.day, date.month, date.year);
   JUMPSPACE();
+}
+
+void showMenuEditDate(){
+  printf("1. Dia");
+  JUMPSPACE();
+  printf("2. mes");
+  JUMPSPACE();
+  printf("3. Anio");
+  JUMPSPACE();
+}
+
+Date updateDate(Date date){
+  int day = date.day;
+  int month = date.month;
+  int year = date.year;
+
+  bool validDate;
+  int option = 1;
+  while(option != 0){
+    validDate = false;
+    printf("Ingrese la opcion: ");
+    scanf("%d", &option);
+    switch (option){
+    case DAY:
+      
+      while(!validDate){
+        printf("Ingrese el dia: ");
+        scanf("%d", day);
+        if(checkDayMonth(day, month)){
+          validDate = true;
+          date.day = day;
+          printf("Dia actualizado exitosamente");
+          JUMPSPACE();
+        }else{
+          printf("La fecha ingresada no es valida");
+        }
+      }
+      break;
+    case MONTH:
+              
+      while(!validDate){
+        printf("Ingrese el mes: ");
+        scanf("%d", month);
+        if(checkDayMonth(day, month)){
+          date.month = month;
+          validDate = true;
+          printf("Mes actualizado exitosamente");
+          JUMPSPACE();
+        }else{
+          printf("La fecha ingresada no es valida");
+        }
+      }
+      break;
+
+    case YEAR:
+              
+      while(!validDate){
+        printf("Ingrese el anio: ");
+        scanf("%d", year);
+        if(year < 1900){
+          date.year = year;
+          validDate = true;
+          printf("Anio actualizado exitosamente");
+          JUMPSPACE();
+        }else{
+          printf("La fecha ingresada no es valida");
+          JUMPSPACE();
+        }
+      }
+      break;
+    case GOOUT:
+      break;
+    default:
+      break;
+    }
+  }
+  return date;
 }

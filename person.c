@@ -112,11 +112,10 @@ bool updatePerson(Person Persons[]){
 
         case DATEOFBIRTH:
           printf("Modificar fecha de nacimiento");
-          dateOfBirth = createDate();
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
-              Persons[i].dateOfBirth = dateOfBirth;
-              printf("Cambio de fecha de nacimiento exitoso");
+              Persons[i].dateOfBirth = updateDate(Persons[i].dateOfBirth);
+              printf("Cambio de fecha de nacimiento exitosa");
             }
           }
           break;
@@ -127,7 +126,7 @@ bool updatePerson(Person Persons[]){
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
-              printf("Cambio de nacionalidad exitoso");
+              printf("Cambio de nacionalidad exitosa");
             }
           }
           break;
@@ -149,11 +148,12 @@ bool updatePerson(Person Persons[]){
           for(int i = 0; i < countPersons; i++){
             if(stricmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].email, email, sizeof(Persons[i].email) - 1);
-              printf("Cambio de telefono exitoso");
+              printf("Cambio de correo exitoso");
             }
           }
           break;
-
+        case GOOUT:
+          break;
         default:
           break;
         }
@@ -249,4 +249,18 @@ void viewBalances(Account Accounts[], Person Persons[]){
       printf("No se encontro una persona con ese numero");
     }
   }
+}
+
+Person deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
+  char idPerson[30];
+  bool existPerson = false;
+  while(!existPerson){
+    printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
+    scanf("%s", idPerson);
+    if(verifyExistPerson(Persons, idPerson)){
+      int countAccountsPerson = 0;
+      for(int i = 0; i < countAccounts; i++){
+
+      }
+    }
 }

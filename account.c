@@ -64,7 +64,7 @@ bool consingAccount(Account Accounts[]){
   float amount = -1;
   bool validAmount = false;
   while(!validAmount){
-    printf("Ingrese la cantidad que desea retirar: ");
+    printf("Ingrese la cantidad que desea consignar: ");
     scanf("%f", &amount);
     if(amount < 0){
       printf("El monto no debe ser menor a 0");
@@ -78,8 +78,8 @@ bool consingAccount(Account Accounts[]){
 
   float aux = 0;
   for(int i = 0; i < countAccounts; i++){
-    if(strcmp(Accounts[i].nAccount, nAccount)){
-      Accounts[i].balance = Accounts[i].balance - (amount + calcularImpuesto(amount));
+    if(strcmp(Accounts[i].nAccount, nAccount) == 0){
+      Accounts[i].balance = Accounts[i].balance + amount;
       aux = Accounts[i].balance;
     }
   }
@@ -124,9 +124,9 @@ bool withdrawAccount(Account Accounts[]){
       validAmount = true;
     } 
   }
-  int aux = 0;
+  float aux = 0;
   for(int i = 0; i < countAccounts; i++){
-    if(strcmp(Accounts[i].nAccount, nAccount)){
+    if(strcmp(Accounts[i].nAccount, nAccount) == 0){
       Accounts[i].balance = Accounts[i].balance - (amount + tax(amount));
       aux = Accounts[i].balance;
     }
@@ -148,6 +148,7 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
       existAccount = true;
     }else{
       printf("Ingrese un numero de una cuenta existente.");
+      JUMPSPACE();
     }
   }
 

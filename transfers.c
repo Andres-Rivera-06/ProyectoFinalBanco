@@ -37,6 +37,7 @@ Transfer createTransfer(Account Accounts[]){
       }
     }else{
       printf(" No se encontro esta cuenta.");
+      JUMPSPACE();
     }
   }
 
