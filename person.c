@@ -263,4 +263,6 @@ Person deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
 
       }
     }
+  }
+  return Persons[0];
 }

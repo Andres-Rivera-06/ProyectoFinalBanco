@@ -152,7 +152,7 @@ Date updateDate(Date date){
       
       while(!validDate){
         printf("Ingrese el dia: ");
-        scanf("%d", day);
+        scanf("%d", &day);
         if(checkDayMonth(day, month)){
           validDate = true;
           date.day = day;
@@ -167,7 +167,7 @@ Date updateDate(Date date){
               
       while(!validDate){
         printf("Ingrese el mes: ");
-        scanf("%d", month);
+        scanf("%d", &month);
         if(checkDayMonth(day, month)){
           date.month = month;
           validDate = true;
@@ -183,7 +183,7 @@ Date updateDate(Date date){
               
       while(!validDate){
         printf("Ingrese el anio: ");
-        scanf("%d", year);
+        scanf("%d", &year);
         if(year < 1900){
           date.year = year;
           validDate = true;
