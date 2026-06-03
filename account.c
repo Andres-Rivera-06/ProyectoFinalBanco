@@ -79,7 +79,7 @@ bool consingAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea consignar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.\n");
+        printf("Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
         continue;
     }
