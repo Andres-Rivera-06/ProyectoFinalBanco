@@ -4,21 +4,19 @@
 #include <string.h>
 
 
-Transfer createTransfer(Account Accounts[]){
+Transfer createTransfer(Account Accounts[]){   
   Transfer transfer;
 
   char destinyAccount[20];
   char originAccount[20];
   float amount = 0;
-  float shippingCost = 0;
-
-  // pedir datos de transfrencia 
+  float shippingCost = 0; 
   
   bool existAccount = false;
   while(!existAccount){
     printf(" Ingrese el numero de cuenta de origen: ");
-    scanf("%s", originAccount);
-    if(verifyExistAccount(Accounts, originAccount)){
+    scanf("%s", originAccount);                            // verifica la existencia de la cuenta origen antes de realizar la transferencia
+    if(verifyExistAccount(Accounts, originAccount)){       
       existAccount = true;
     }else{
       printf(" No se encontro esta cuenta. \n");
@@ -28,7 +26,7 @@ Transfer createTransfer(Account Accounts[]){
   existAccount = false;
   while(!existAccount){
     printf(" Ingrese el numero de cuenta de destino: ");
-    scanf("%s", destinyAccount);
+    scanf("%s", destinyAccount);                                 // verifica la existencia de la cuenta destino antes de realizar la transferencia
     if(verifyExistAccount(Accounts, destinyAccount)){
       if(strcmp(originAccount, destinyAccount) == 0){
         printf(" La cuenta origen y destino no pueden ser la misma.\n");
@@ -43,7 +41,7 @@ Transfer createTransfer(Account Accounts[]){
 
   bool validAmount = false;
   while(!validAmount){
-    printf(" Ingresa el valor a trasnferir : ");
+    printf(" Ingresa el valor a trasnferir : ");       
     if(scanf("%f", &amount) != 1){
         printf(" Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
@@ -53,8 +51,8 @@ Transfer createTransfer(Account Accounts[]){
       printf(" El monto debe ser mayor que cero.\n");
     }else{
       shippingCost = TAX(amount);
-      if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){
-        for(int i = 0; i < countAccounts; i++){
+      if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){       // valida monto ingresado antes de transferir. 
+        for(int i = 0; i < countAccounts; i++){                        
           if(strcmp(Accounts[i].nAccount,originAccount)==0){
             Accounts[i].balance = Accounts[i].balance - (amount + shippingCost);
             validAmount = true;

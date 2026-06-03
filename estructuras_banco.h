@@ -6,8 +6,8 @@ extern int countPersons;
 extern int countAccounts; 
 extern int countTransfers; 
 
-#define TAX(amount) ((amount) * 0.004)
-#define JUMPSPACE()printf("\n")
+#define TAX(amount) ((amount) * 0.004)  //macro calcular impuesto
+#define JUMPSPACE()printf("\n")                 
 
 typedef struct {
   int day;
@@ -41,7 +41,7 @@ typedef struct{
 } Transfer;
 
 
-Person createPerson(Person Persons[]);
+Person createPerson(Person Persons[]);                              //libreria de funciones del sistema.
 Date createDate();
 bool checkDayMonth(int day, int month);
 void showDate(Date date);

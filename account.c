@@ -5,7 +5,7 @@
 Account createAccount(Person persons[], Account Accounts[]){
   Account account;
 
-  char nAccountAux[30];
+  char nAccountAux[30];                           // crea cuenta y valida datos 
   bool existNAccount = false;
   while (!existNAccount){
     printf("Ingrese el numero de cuenta: ");
@@ -48,7 +48,7 @@ Account createAccount(Person persons[], Account Accounts[]){
 }
 
 bool verifyExistAccount(Account Accounts[], char nAccount[]){ 
-  for(int i = 0; i < countAccounts; i++){
+  for(int i = 0; i < countAccounts; i++){                     
     if(strcmp(Accounts[i].nAccount, nAccount) == 0){
       return true;
     }
@@ -57,7 +57,7 @@ bool verifyExistAccount(Account Accounts[], char nAccount[]){
 }
 
 bool consingAccount(Account Accounts[]){
-  printf("Consignar dinero a una cuenta");
+  printf("Consignar dinero a una cuenta");         //funcion para consignar verificando datos y muestra el nuevo monto
   JUMPSPACE();
 
   char nAccount[20];
@@ -116,7 +116,7 @@ bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]){
 bool withdrawAccount(Account Accounts[]){
   printf("Retirar dinero de la cuenta");
 
-  char nAccount[20];
+  char nAccount[20];                 // funcion para retirar dinero valindando datos y mostrando nuevo monto 
 
   bool existAccount = false;
   while(!existAccount){
@@ -173,7 +173,7 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
 
   bool existAccount = false;
   while(!existAccount){
-    printf("Ingrese el numero de cuenta: ");
+    printf("Ingrese el numero de cuenta: ");      //funcion mostrar transferencias asociadas.
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
@@ -196,9 +196,9 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
   
 }
 
-//Esta funcion solo se debe llamar si se esta seguro que la cuenta existe
+
 Account getAccount(Account Accounts[], char nAccount[]){
-  for(int i = 0; i < countAccounts; i++){
+  for(int i = 0; i < countAccounts; i++){                  //Esta funcion solo se debe llamar si se esta seguro que la cuenta existe
     if(strcmp(Accounts[i].nAccount, nAccount) == 0){
       return Accounts[i];
     }
@@ -210,10 +210,10 @@ Account getAccount(Account Accounts[], char nAccount[]){
   return account;
 }
 
-//funcion recursiva para calcular el interes que va a obtener una cuenta pasado x dias 
+
 float calculate(float amount, int days){
   if(days == 1){
-    return amount * 0.02;
+    return amount * 0.02;             //funcion recursiva para calcular el interes que va a obtener una cuenta pasado x dias 
   }
   return (amount * 0.005) + calculate(amount * 1.02, days - 1);
 }
@@ -226,7 +226,7 @@ void earnings(Account Accounts[]){
   int days = 0;
 
   bool existAccount = false;
-  while(!existAccount){
+  while(!existAccount){                                              //verifica que la cuenta exista
     printf("Ingrese el numero de cuenta: ");
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
@@ -237,7 +237,7 @@ void earnings(Account Accounts[]){
   while(days < 1){
     printf("Ingrese la cantidad de dias que desea calcular las ganancias: ");
     scanf("%d", &days);
-    if(days < 1){
+    if(days < 1){                                                   //define la cantidad de dias con la que se va a calcular las ganacias 
       printf("La cantidad de dias no puede ser menor a 1");
       JUMPSPACE();
     }
@@ -252,7 +252,7 @@ void earnings(Account Accounts[]){
   JUMPSPACE();
 
   int option = 0;
-  while(option != 1 && option != 2){
+  while(option != 1 && option != 2){                                //seleccion del usuario de si quiere guardar las ganancias en la cuenta o no
     printf("Desea aplicar las ganancias a la cuenta?");
     JUMPSPACE();
     printf("1. Aplicar");
@@ -261,13 +261,13 @@ void earnings(Account Accounts[]){
     JUMPSPACE();
     printf("Ingrese la opcion: ");
     scanf("%d", &option);
-    if(option == 1){
-      for(int i = 0; i < countAccounts; i++){
+    if(option == 1){ 
+      for(int i = 0; i < countAccounts; i++){                       //guarda el nuevo balance de la cuenta en el vector
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
         }
       }
-    }else if(option == 2){
+    }else if(option == 2){                                          //si el usuario no guarda el nuevo monto se sale de la funcion
       JUMPSPACE();
     }else{
       printf("Ingrese una de las opciones");
@@ -277,8 +277,8 @@ void earnings(Account Accounts[]){
 }
 
 
-Account cleanAccount(Account account){
-  account.balance = 0;
+Account cleanAccount(Account account){                              //recibe una cuenta y la devuelve con datos vacios 
+  account.balance = -1;
   strcpy(account.idPerson, "");
   strcpy(account.nAccount, "");
   return account;

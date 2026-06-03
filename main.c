@@ -59,7 +59,7 @@ void main(){
   int option = 1;
   while (option != 0 ){
     JUMPSPACE();
-    printf("Cargando menu...");
+    printf("Cargando menu..."); // crea un delay antes de mostrar el menu.
     Sleep(4000);
     menu();
     scanf("%d", &option);
@@ -69,7 +69,7 @@ void main(){
         if(countPersons < 20){
         printf("Agregar nueva persona\n");
         Person person = createPerson(Persons);
-        Persons[countPersons] = person;
+        Persons[countPersons] = person;                // crea una persona nueva en el sistema e inmediatamente la guarda.
         countPersons = countPersons + 1;
         savePersons(Persons, countPersons);
         printf("Persona creada correctamente");
@@ -79,14 +79,14 @@ void main(){
         }
         break;
       case UPDATEPERSON:
-      updatePerson(Persons);
+      updatePerson(Persons);                     // actualiza una persona e inmediatamente la guarda.
       savePersons(Persons, countPersons);
         break;
       case CREATEACCOUNT:
         if(countAccounts < 40){
           printf("Crear cuenta\n");
           Account account = createAccount(Persons, Accounts);
-          Accounts[countAccounts] = account;
+          Accounts[countAccounts] = account;                      // crea una cuenta nueva en el sistema e inmediatamente la guarda.
           countAccounts = countAccounts + 1;
           saveAccounts(Accounts, countAccounts);
           printf("Cuenta creada correctamente");
@@ -113,7 +113,7 @@ void main(){
           if(countTransfers < 120){
             Transfer transfer = createTransfer(Accounts);
             Transfers[countTransfers] = transfer;
-            countTransfers = countTransfers + 1;
+            countTransfers = countTransfers + 1;                // crea una transferencia nueva en el sistema e inmediatamente la guarda.
             saveAccounts(Accounts, countAccounts);
             saveTransfers(Transfers, countTransfers);
             printf("Transferencia exitosa");
@@ -122,14 +122,14 @@ void main(){
           }
         break;
       case WITHDRAW:
-        withdrawAccount(Accounts);
+        withdrawAccount(Accounts);                // retira dinero de una cuenta e inmediatamente la guarda.
         saveAccounts(Accounts, countAccounts);
         break;
       case DEPOSIT:
         printf("Consignar cuenta");
         JUMPSPACE();
         if(consingAccount(Accounts)){
-          saveAccounts(Accounts, countAccounts);
+          saveAccounts(Accounts, countAccounts);       // consigna dinero a una cuenta e inmediatamente guarda la cuenta con el nuevo valor.
           printf("Consignacion exitosa");
           JUMPSPACE();
         }else{
