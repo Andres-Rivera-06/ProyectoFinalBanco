@@ -18,7 +18,8 @@ enum OptionMenu{
   TRANSFER,
   WITHDRAW,
   DEPOSIT,
-  CALCULATEARNINGS
+  CALCULATEARNINGS,
+  DELETEPERSON
 };
 
 
@@ -43,6 +44,7 @@ void menu(){
   printf(" ║  8.  RETIRAR                           ║\n");
   printf(" ║  9.  CONSIGNAR                         ║\n");
   printf(" ║ 10.  CALCULAR GANANCIAS POR INTERESES  ║\n");
+  printf(" ║ 11.  ELIMINAR PERSONA                  ║\n");
   printf(" ╟────────────────────────────────────────╢\n");
   printf(" ║  0.  SALIR                             ║\n");
   printf(" ╚════════════════════════════════════════╝\n");
@@ -144,6 +146,16 @@ void main(){
       case CALCULATEARNINGS:
         earnings(Accounts);
         saveAccounts(Accounts, countAccounts);
+        break;
+      case DELETEPERSON:
+        if(deletePerson(Persons, Accounts, Transfers)){
+          saveAccounts(Accounts, countAccounts);
+          savePersons(Persons, countPersons);
+          saveTransfers(Transfers, countTransfers);
+        }else{
+          printf("No se pudo eliminar la persona");
+          JUMPSPACE();
+        }
         break;
       case GOOUT:
         printf("Gracias por usar nuestro sistema");

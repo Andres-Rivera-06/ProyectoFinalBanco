@@ -306,6 +306,7 @@ bool deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
       return true;
     }else{
       printf("No se encontro una persona con esta identificacion");
+      JUMPSPACE();
     }
   }
   return false;

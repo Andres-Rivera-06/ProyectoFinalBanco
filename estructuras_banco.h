@@ -61,6 +61,7 @@ Account cleanAccount(Account account);
 bool withdrawAccount(Account Accounts[]);
 Date cleanDate(Date date);
 void earnings(Account Accounts[]);
+bool deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]);
 
 void savePersons(Person persons[], int countPersons);
 int readPersons(Person persons[]);
