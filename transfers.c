@@ -11,7 +11,7 @@ Transfer createTransfer(Account Accounts[]){
   char originAccount[20];
   float amount = 0;
   float shippingCost = 0; 
-  
+  float aux;
   bool existAccount = false;
   while(!existAccount){
     printf(" Ingrese el numero de cuenta de origen: ");
@@ -38,7 +38,7 @@ Transfer createTransfer(Account Accounts[]){
       JUMPSPACE();
     }
   }
-
+  float finalBalance;
   bool validAmount = false;
   while(!validAmount){
     printf(" Ingresa el valor a trasnferir : ");       
@@ -55,6 +55,7 @@ Transfer createTransfer(Account Accounts[]){
         for(int i = 0; i < countAccounts; i++){                        
           if(strcmp(Accounts[i].nAccount,originAccount)==0){
             Accounts[i].balance = Accounts[i].balance - (amount + shippingCost);
+            aux = Accounts[i].balance;
             validAmount = true;
           }
         }
@@ -77,6 +78,8 @@ Transfer createTransfer(Account Accounts[]){
   transfer.shippingcost = shippingCost;
   strcpy(transfer.originAccount, originAccount);
   strcpy(transfer.destinyAccount, destinyAccount);
+  printf("El nuevo saldo de la cuenta de origen es: %.2f", aux);
+  JUMPSPACE();
   return transfer;
 }
 

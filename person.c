@@ -253,8 +253,9 @@ void viewBalances(Account Accounts[], Person Persons[]){
         JUMPSPACE();
       }
     }else{
-      JUMPSPACE();
       printf("No se encontro una persona con esta identificacion");
+      JUMPSPACE();
+
     }
   }
 }
