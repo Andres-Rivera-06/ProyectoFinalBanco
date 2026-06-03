@@ -69,7 +69,8 @@ Transfer createTransfer(Account Accounts[]){
       break;
     }
   }
-  printf("Fecha de la transferencia");
+  printf(" Fecha de la transferencia");
+  JUMPSPACE();
   Date date = createDate();
   transfer.amount = amount;
   transfer.dateTransfer = date;
