@@ -14,41 +14,41 @@ Transfer createTransfer(Account Accounts[]){
   float aux;
   bool existAccount = false;
   while(!existAccount){
-    printf(" Ingrese el numero de cuenta de origen: ");
+    printf("Ingrese el numero de cuenta de origen: ");
     scanf("%s", originAccount);                            // verifica la existencia de la cuenta origen antes de realizar la transferencia
     if(verifyExistAccount(Accounts, originAccount)){       
       existAccount = true;
     }else{
-      printf(" No se encontro esta cuenta. \n");
+      printf("No se encontro esta cuenta. \n");
     }
   }
   
   existAccount = false;
   while(!existAccount){
-    printf(" Ingrese el numero de cuenta de destino: ");
+    printf("Ingrese el numero de cuenta de destino: ");
     scanf("%s", destinyAccount);                                 // verifica la existencia de la cuenta destino antes de realizar la transferencia
     if(verifyExistAccount(Accounts, destinyAccount)){
       if(strcmp(originAccount, destinyAccount) == 0){
-        printf(" La cuenta origen y destino no pueden ser la misma.\n");
+        printf("La cuenta origen y destino no pueden ser la misma.\n");
       }else{
         existAccount = true;
       }
     }else{
-      printf(" No se encontro esta cuenta. \n");
+      printf("No se encontro esta cuenta. \n");
       JUMPSPACE();
     }
   }
   float finalBalance;
   bool validAmount = false;
   while(!validAmount){
-    printf(" Ingresa el valor a trasnferir : ");       
+    printf("Ingresa el valor a trasnferir : ");       
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.\n");
+        printf("Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
         continue;
     }
     if(amount <= 0){
-      printf(" El monto debe ser mayor que cero.\n");
+      printf("El monto debe ser mayor que cero.\n");
     }else{
       shippingCost = TAX(amount);
       if(verifyBalanceAccount(Accounts, amount + shippingCost, originAccount)){       // valida monto ingresado antes de transferir. 
@@ -60,7 +60,7 @@ Transfer createTransfer(Account Accounts[]){
           }
         }
       }else{
-      printf(" Saldo insuficiente.\n");
+      printf("Saldo insuficiente.\n");
       }
     }
   }
@@ -70,7 +70,7 @@ Transfer createTransfer(Account Accounts[]){
       break;
     }
   }
-  printf(" Fecha de la transferencia");
+  printf("Fecha de la transferencia");
   JUMPSPACE();
   Date date = createDate();
   transfer.amount = amount;
