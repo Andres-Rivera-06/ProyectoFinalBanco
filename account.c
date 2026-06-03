@@ -123,7 +123,6 @@ bool withdrawAccount(Account Accounts[]){
   bool existAccount = false;
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
-    JUMPSPACE();
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
@@ -138,7 +137,7 @@ bool withdrawAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.");
+        printf("Debe ingresar un numero valido.");
         JUMPSPACE();
         while(getchar() != '\n');
         continue;
