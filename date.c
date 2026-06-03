@@ -79,7 +79,7 @@ bool checkDayMonth(int day, int month){
 
 Date createDate(){
   Date date;
-  int day = 0, month = 0, year = 0;
+  int day = 0, month = 0, year = 0;    // funcion crear fecha con sus validaciones de dia, mes y año.
   
   while (year < 1900){
     
@@ -139,7 +139,7 @@ void showMenuEditDate(){
 Date updateDate(Date date){
   int day = date.day;
   int month = date.month;
-  int year = date.year;
+  int year = date.year;           //funcion para actualizar datos mediante switch respetando las validaciones
 
   bool validDate;
   int option = 1;
@@ -205,8 +205,8 @@ Date updateDate(Date date){
 }
 
 Date cleanDate(Date date){
-  date.day = 0;
-  date.month = 0;
+  date.day = 0; 
+  date.month = 0;                 //recibe un date y lo devuelve con datos vacios
   date.year = 0;
   return date; 
 }
