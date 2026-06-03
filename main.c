@@ -31,7 +31,7 @@ void menu(){
   SetConsoleOutputCP(CP_UTF8);     //comando que permite caracteres especiales en la consola
   printf("\n");
   printf(" ╔════════════════════════════════════════╗\n");
-  printf(" ║             BANCO NEOBANCK             ║\n");
+  printf(" ║             BANCO NEOBANK              ║\n");
   printf(" ╟────────────────────────────────────────╢\n");
   printf(" ║  1.  CREAR PERSONA                     ║\n");
   printf(" ║  2.  ACTUALIZAR DATOS DE PERSONA       ║\n");
