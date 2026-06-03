@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include "estructuras_banco.h"
+#include "estructuras_banco.h"     
 #include <string.h>
-
+                                            // funciones para guardar y leer los datos de las 3 estructuras
 void savePersons(Person persons[], int countPersons){
-    FILE *file = fopen("persons.dat", "wb");
+    FILE *file = fopen("persons.dat", "wb");            
     if(file == NULL){
         printf("Error al abrir el archivo persons.dat\n");
         return;

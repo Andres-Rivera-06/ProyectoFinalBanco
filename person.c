@@ -3,7 +3,7 @@
 #include <string.h>
 
 enum UpdatePersonOption{
-  GOOUT,
+  GOOUT,                             
   NAME,
   LASTNAME,
   DATEOFBIRTH,
@@ -11,15 +11,15 @@ enum UpdatePersonOption{
   PHONE,
   EMAIL
 };
-
-
-Person createPerson(Person Persons[]){
+                                                 
+                                                    
+Person createPerson(Person Persons[]){                 //funcion crear una persona verificando que no exista una ya creada con ese id
   Person person;
   
   char idPerson[30];
   bool existPerson = false;
   while (!existPerson){
-    printf("Ingrese la identificacion: ");
+    printf("Ingrese la identificacion: ");    
     scanf("%s", idPerson);
     if(verifyExistPerson(Persons, idPerson)){
       printf("Ya existe una persona con esa identificacion");
@@ -68,7 +68,7 @@ void showMenuEditPerson(){
 
 bool updatePerson(Person Persons[]){
   char idPerson[30];
-  bool existAccount = false;
+  bool existAccount = false;                    // funcion actualizar datos realizando validaciones correspondientes
   int option = 1;
   char name[30];
   char lastname[30];
@@ -194,7 +194,7 @@ void showPerson(Person person){
 }
 
 bool readPerson(Person Persons[]){
-  char idPerson[30];
+  char idPerson[30];                 //lee una persona y valida su exixtencia 
   bool existPerson = false;
   while(!existPerson){
     printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
@@ -214,14 +214,14 @@ bool readPerson(Person Persons[]){
   return false;
 }
 
-void listPersons(Person persons[]){
-  for (int i = 0; i < countPersons; i++){
+void listPersons(Person persons[]){                 // muestra la lista de personas con todos sus datos.
+  for (int i = 0; i < countPersons; i++){ 
     showPerson(persons[i]);
     printf("\n");
   }
 }
 
-bool verifyExistPerson(Person persons[], char idPerson[]){
+bool verifyExistPerson(Person persons[], char idPerson[]){  
   for(int i = 0; i < countPersons; i++){
     if(strcmp(persons[i].id, idPerson) == 0){
       return true;
@@ -236,7 +236,7 @@ void viewBalances(Account Accounts[], Person Persons[]){
   while(!existPerson){
     printf("Ingrese la identificacion de la persona de la que desea ver los saldos: ");
     scanf("%s", idPerson);
-    if(verifyExistPerson(Persons, idPerson)){
+    if(verifyExistPerson(Persons, idPerson)){                   //muesta el balance de la cuenta con sus validaciones.
       existPerson = true;
       int countAccountsPerson = 0;
       for(int i = 0; i < countAccounts; i++){
@@ -262,12 +262,12 @@ void viewBalances(Account Accounts[], Person Persons[]){
 Person cleanPerson(Person person){
   person.dateOfBirth = cleanDate(person.dateOfBirth);
   strcpy(person.id, "");
-  strcpy(person.email, "");
+  strcpy(person.email, "");                    
   strcpy(person.name, "");
   strcpy(person.lastname, "");
   strcpy(person.nationality, "");
   strcpy(person.phone, "");
-  return person;
+  return person;                                              // funcion eliminar persona
 }
 
 bool deletePerson(Person Persons[], Account Accounts[], Transfer Transfers[]){
