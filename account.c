@@ -276,7 +276,7 @@ void earnings(Account Accounts[]){
       for(int i = 0; i < countAccounts; i++){                       //guarda el nuevo balance de la cuenta en el vector
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
-          printf("El nuevo balance de la cuenta es %.2f", account.balance);
+          printf("El nuevo balance de la cuenta es %.2f", Accounts[i].balance);
           JUMPSPACE();
         }
       }
