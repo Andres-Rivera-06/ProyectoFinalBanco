@@ -69,6 +69,7 @@ Transfer createTransfer(Account Accounts[]){
       break;
     }
   }
+  printf("Fecha de la transferencia");
   Date date = createDate();
   transfer.amount = amount;
   transfer.dateTransfer = date;
@@ -82,8 +83,8 @@ Transfer createTransfer(Account Accounts[]){
 void showTransfer(Transfer transfer){
   printf("Numero de cuenta de origen: %s\n", transfer.originAccount);
   printf("Numero de cuenta de destino: %s\n", transfer.destinyAccount);
-  printf("Monto de la tranferencia: %f\n", transfer.amount);
-  printf("Impuesto por tranferencia:: %f\n", transfer.shippingcost);
+  printf("Monto de la tranferencia: %.2f\n", transfer.amount);
+  printf("Impuesto por tranferencia:: %.2f\n", transfer.shippingcost);
   printf("Fecha de la tranferencia: ");
   showDate(transfer.dateTransfer);
 }

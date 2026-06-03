@@ -27,23 +27,27 @@ void menu(){
   JUMPSPACE();
   JUMPSPACE();
   JUMPSPACE();
-  printf("\n          BANCO NEOBANCK          \n");
-  printf(" _________________________________________\n");
-  printf(" |                                        |\n");
-  printf(" |  1.  CREAR PERSONA                     |\n");
-  printf(" |  2.  ACTUALIZAR DATOS DE PERSONA       |\n");
-  printf(" |  3.  CREAR CUENTA                      |\n");
-  printf(" |  4.  VISUALIZAR PERSONAS               |\n");
-  printf(" |  5.  VER MOVIMIENTOS                   |\n");
-  printf(" |  6.  VER SALDOS                        |\n");
-  printf(" |  7.  TRANSFERIR                        |\n");
-  printf(" |  8.  RETIRAR                           |\n");
-  printf(" |  9.  CONSIGNAR                         |\n");
-  printf(" |  10. CALCULAR GANANCIAS POR INTERESES  |\n");
-  printf(" |  0.  SALIR                             |\n");
-  printf(" |________________________________________|\n\n");
+  
+  SetConsoleOutputCP(CP_UTF8);     //comando que permite caracteres especiales en la consola
+  printf("\n");
+  printf(" ╔════════════════════════════════════════╗\n");
+  printf(" ║             BANCO NEOBANCK             ║\n");
+  printf(" ╟────────────────────────────────────────╢\n");
+  printf(" ║  1.  CREAR PERSONA                     ║\n");
+  printf(" ║  2.  ACTUALIZAR DATOS DE PERSONA       ║\n");
+  printf(" ║  3.  CREAR CUENTA                      ║\n");
+  printf(" ║  4.  VISUALIZAR PERSONAS               ║\n");
+  printf(" ║  5.  VER MOVIMIENTOS                   ║\n");
+  printf(" ║  6.  VER SALDOS                        ║\n");
+  printf(" ║  7.  TRANSFERIR                        ║\n");
+  printf(" ║  8.  RETIRAR                           ║\n");
+  printf(" ║  9.  CONSIGNAR                         ║\n");
+  printf(" ║ 10.  CALCULAR GANANCIAS POR INTERESES  ║\n");
+  printf(" ╟────────────────────────────────────────╢\n");
+  printf(" ║  0.  SALIR                             ║\n");
+  printf(" ╚════════════════════════════════════════╝\n");
   JUMPSPACE();
-  printf("  Ingrese un opcion:  ");
+  printf("Ingrese un opcion:  ");
 
 }
 
@@ -139,7 +143,8 @@ void main(){
         break;
       case CALCULATEARNINGS:
         earnings(Accounts);
-        
+        saveAccounts(Accounts, countAccounts);
+        break;
       case GOOUT:
         printf("Gracias por usar nuestro sistema");
         break;

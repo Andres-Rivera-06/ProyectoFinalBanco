@@ -101,6 +101,7 @@ bool consingAccount(Account Accounts[]){
     }
   }
   printf("El nuevo monto de la cuenta es: %.2f", aux);
+  JUMPSPACE();
   return true;
 }
 
@@ -115,17 +116,20 @@ bool verifyBalanceAccount(Account Accounts[], float amount, char nAccount[]){
 
 bool withdrawAccount(Account Accounts[]){
   printf("Retirar dinero de la cuenta");
+  JUMPSPACE();
 
   char nAccount[20];                 // funcion para retirar dinero valindando datos y mostrando nuevo monto 
 
   bool existAccount = false;
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
+    JUMPSPACE();
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("No existe una cuenta con ese numero de cuenta. \n");
+      printf("No existe una cuenta con ese numero de cuenta.");
+      JUMPSPACE();
     }
   }
 
@@ -134,7 +138,8 @@ bool withdrawAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.\n");
+        printf(" Debe ingresar un numero valido.");
+        JUMPSPACE();
         while(getchar() != '\n');
         continue;
     }
@@ -162,7 +167,7 @@ bool withdrawAccount(Account Accounts[]){
       aux = Accounts[i].balance;
     }
   }
-  printf("El nuevo monto de la cuenta es: %f", aux);
+  printf("El nuevo monto de la cuenta es: %.2f", aux);
   return true;
 }  
 
@@ -178,20 +183,26 @@ void showAccountTransfers(Account Accounts[], Transfer Transfers[]){
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
     }else{
-      printf("Ingrese un numero de una cuenta existente. \n");
+      printf("Ingrese un numero de una cuenta existente.");
       JUMPSPACE();
     }
   }
-
+  int aux = 0;
   for(int i = 0; i < countTransfers; i++){
     if(strcmp(Transfers[i].originAccount, nAccount) == 0){
       printf("--Tranferencia Enviada--\n");
       showTransfer(Transfers[i]);
+      aux++;
     }else if(strcmp(Transfers[i].destinyAccount, nAccount) == 0){
       printf("--Tranferencia Recibida--");
       JUMPSPACE();
       showTransfer(Transfers[i]);
+      aux++;
     }
+  }
+  if(aux == 0){
+    printf("La cuenta no tiene transferencias");
+    JUMPSPACE();
   }
   
 }
@@ -246,7 +257,7 @@ void earnings(Account Accounts[]){
   Account account = getAccount(Accounts, nAccount);
   float amountEarnings = calculate(account.balance, days);
 
-  printf("Las ganancias de la cuenta son de %f", amountEarnings);
+  printf("Las ganancias de la cuenta son de %.2f", amountEarnings);
   JUMPSPACE();
   printf("El total de la cuenta aplicando las ganacias seria %.f", account.balance + amountEarnings);
   JUMPSPACE();
@@ -265,6 +276,8 @@ void earnings(Account Accounts[]){
       for(int i = 0; i < countAccounts; i++){                       //guarda el nuevo balance de la cuenta en el vector
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
+          printf("El nuevo balance de la cuenta es %.2f", account.balance);
+          JUMPSPACE();
         }
       }
     }else if(option == 2){                                          //si el usuario no guarda el nuevo monto se sale de la funcion
