@@ -79,7 +79,7 @@ bool consingAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea consignar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.\n");
+        printf("Debe ingresar un numero valido.\n");
         while(getchar() != '\n');
         continue;
     }
@@ -123,7 +123,6 @@ bool withdrawAccount(Account Accounts[]){
   bool existAccount = false;
   while(!existAccount){
     printf("Ingrese el numero de cuenta: ");
-    JUMPSPACE();
     scanf("%s", nAccount);
     if(verifyExistAccount(Accounts, nAccount)){
       existAccount = true;
@@ -138,7 +137,7 @@ bool withdrawAccount(Account Accounts[]){
   while(!validAmount){
     printf("Ingrese la cantidad que desea retirar: ");
     if(scanf("%f", &amount) != 1){
-        printf(" Debe ingresar un numero valido.");
+        printf("Debe ingresar un numero valido.");
         JUMPSPACE();
         while(getchar() != '\n');
         continue;
@@ -276,7 +275,7 @@ void earnings(Account Accounts[]){
       for(int i = 0; i < countAccounts; i++){                       //guarda el nuevo balance de la cuenta en el vector
         if(strcmp(Accounts[i].nAccount, nAccount) == 0){
           Accounts[i].balance = Accounts[i].balance + amountEarnings;
-          printf("El nuevo balance de la cuenta es %.2f", account.balance);
+          printf("El nuevo balance de la cuenta es %.2f", Accounts[i].balance);
           JUMPSPACE();
         }
       }

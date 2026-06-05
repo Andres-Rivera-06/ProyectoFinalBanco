@@ -64,6 +64,8 @@ void showMenuEditPerson(){
   JUMPSPACE();
   printf(" 6. Correo electronico");
   JUMPSPACE();
+  printf(" 0. Salir");
+  JUMPSPACE();
 }
 
 bool updatePerson(Person Persons[]){
@@ -80,7 +82,7 @@ bool updatePerson(Person Persons[]){
 
   while(!existAccount){
   
-    printf("Ingrese el numero de cuenta de la que desea modificar los datos: ");
+    printf("Ingrese el documento de la persona que desea modificar los datos: ");
     scanf("%s", idPerson);
     if(verifyExistPerson(Persons, idPerson)){
       
@@ -97,6 +99,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].name, name, sizeof(Persons[i].name) - 1);
               printf("Cambio de nombre exitoso");
+              JUMPSPACE();
             }
           }
           break;
@@ -109,6 +112,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].lastname, lastname, sizeof(Persons[i].lastname) - 1);
               printf("Cambio de apellido exitoso");
+              JUMPSPACE();
             }
           }
           break;
@@ -119,6 +123,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               Persons[i].dateOfBirth = updateDate(Persons[i].dateOfBirth);
               printf("Cambio de fecha de nacimiento exitosa");
+              JUMPSPACE();
             }
           }
           break;
@@ -130,6 +135,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].nationality, nationality, sizeof(Persons[i].nationality) - 1);
               printf("Cambio de nacionalidad exitosa");
+              JUMPSPACE();
             }
           }
           break;
@@ -141,6 +147,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].phone, phone, sizeof(Persons[i].phone) - 1);
               printf("Cambio de telefono exitoso");
+              JUMPSPACE();
             }
           }
           break;
@@ -152,6 +159,7 @@ bool updatePerson(Person Persons[]){
             if(strcmp(Persons[i].id, idPerson) == 0){
               strncpy(Persons[i].email, email, sizeof(Persons[i].email) - 1);
               printf("Cambio de correo exitoso");
+              JUMPSPACE();
             }
           }
           break;
