@@ -226,7 +226,7 @@ float calculate(float amount, int days){
   if(days == 1){
     return amount * 0.02;             //funcion recursiva para calcular el interes que va a obtener una cuenta pasado x dias 
   }
-  return (amount * 0.005) + calculate(amount * 1.02, days - 1);
+  return (amount * 0.02) + calculate(amount * 1.02, days - 1);
 }
 
 void earnings(Account Accounts[]){
